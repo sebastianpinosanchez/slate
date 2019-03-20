@@ -50,10 +50,10 @@ request(options, function (error, response, body) {
 
 ```json
 {
-    "authentication_token": "meowmeowmeow",
-    "success_messages": [
-        "Usuario logeado"
-    ]
+  "authentication_token": "meowmeowmeow",
+  "success_messages": [
+    "Usuario logeado"
+  ]
 }
 ```
 
@@ -61,9 +61,9 @@ request(options, function (error, response, body) {
 
 ```json
 {
-    "error_messages": [
-        ...
-    ]
+  "error_messages": [
+    ...
+  ]
 }
 ```
 
@@ -137,14 +137,14 @@ request(options, function (error, response, body) {
 
 ```json
 {
-    "error_messages": [
-        "Nombre ciudad es requerido",
-        "Dirección es requerida"
-    ]
+  "error_messages": [
+    "Nombre ciudad es requerido",
+    "Dirección es requerida"
+  ]
 }
 ```
 
-this final point allows validating if a direction is well formed and returns the coordinates of the point
+this end point allows validating if a direction is well formed and returns the coordinates of the point
 
 ### HTTP Request
 
@@ -154,7 +154,77 @@ authentication_token: meowmeowmeow`
 
 ### Query Parameters
 
-Parameter | Type | Description
---------- | ------- | -----------
-address | String | Address provided by the Google Maps API and its predictive field
-city_name | String | Name of the corresponding city of the address
+Parameter | Type    | Mandatory | Default       | Description
+--------- | ------- | --------- | -----------   | -----------
+address   | String  | true      | doesn't apply | Address provided by the Google Maps API and its predictive field
+city_name | String  | true      | doesn't apply | Name of the corresponding city of the address
+
+## Calculate service fee
+
+
+> Calculating services fee
+
+```shell
+curl -X GET \
+  'http://192.168.1.36:3000/api/v1/calc-fee?total_distance=9&has_procedures=true&return_origin=true' \
+  -H 'authentication_token: meowmeowmeow
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'http://192.168.1.36:3000/api/v1/calc-fee',
+  qs: 
+   { total_distance: '9',
+     has_procedures: 'true',
+     return_origin: 'true' },
+  headers: 
+   { 
+     authentication_token: 'meowmeowmeow' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+```
+
+> The successful JSON has the following structure:
+
+```json
+{
+  "response": {
+    "fee": 24950
+  }
+}
+```
+
+> The failed JSON result has the following structure:
+
+```json
+{
+  "error_messages": [
+    "Distancia debe ser mayor a 0."
+  ]
+}
+```
+
+this end point calculates the fee given the characteristics of a Service
+
+### HTTP Request
+
+`GET /api/v1/calc-fee?total_distance=9&amp; has_procedures=true&amp; return_origin=true HTTP/1.1
+Host: 192.168.1.36:3000
+authentication_token: meowmeowmeow`
+
+
+### Query Parameters
+
+Parameter | Type    | Mandatory | Default       | Description
+--------- | ------- | --------- | -----------   | -----------
+total_distance   | String  | true      | doesn't apply | Number of kilometers the service has
+has_procedures | Boolean  | false      | false | If the service has procedure
+return_origin | Boolean  | false      | false | If the service must return to the origin
+
