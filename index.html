@@ -257,7 +257,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the documentation of the TurboBoy API!, you can use this api to manage services (create, get and update).</p>
+<p>Welcome to the documentation of the TurboBoy API!, you can use this API to manage services (create, get and update).</p>
 
 <p>We have several examples of each API route in <strong>shell</strong> and <strong>javascript</strong>, which help to understand the documentation.</p>
 
@@ -364,7 +364,7 @@ Remember add <code>authentication_token</code> to the header of all requests
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>this end point allows validating if a direction is well formed and returns the coordinates of the point</p>
+<p>This endpoint allows validating if a direction is well formed and returns the coordinates of the point</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /api/v1/validate-address?address=Centro Comercial Oviedo&amp;amp; city_name=medellin HTTP/1.1
 Host: turboboy.co:3000
@@ -384,7 +384,7 @@ authentication_token: meowmeowmeow</code></p>
 <td>String</td>
 <td>true</td>
 <td>doesn&#39;t apply</td>
-<td>Address provided by the Google Maps API and its predictive field</td>
+<td>Address provided by the user</td>
 </tr>
 <tr>
 <td>city_name</td>
@@ -438,7 +438,7 @@ authentication_token: meowmeowmeow</code></p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>this end point calculates the fee given the characteristics of a Service</p>
+<p>This endpoint calculates the fee given the characteristics of a Service</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /api/v1/calc-fee?total_distance=9&amp;amp; has_procedures=true&amp;amp; return_origin=true HTTP/1.1
 Host: turboboy.co:3000
@@ -515,7 +515,7 @@ authentication_token: meowmeowmeow</code></p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>this endpoint calculates the distance that must be covered for a service with points A and B</p>
+<p>This endpoint calculates the distance that must be covered for a service with points A and B</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /api/v1/calc-distance?start_point=40.6655101, -73.8918&amp;amp; end_point=40.6905615,-73.9976592 HTTP/1.1
 Host: turboboy.co:3000
@@ -550,7 +550,7 @@ authentication_token: meowmeowmeow</code></p>
 <p>Validating service</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  http://192.168.1.36:3000/api/v1/validate-service <span class="se">\</span>
+  http://turboboy.co:3000/api/v1/validate-service <span class="se">\</span>
   -H <span class="s1">'authentication_token: meowmeowmeow \
   -d '</span><span class="o">{</span>
     <span class="s2">"origin"</span>:<span class="o">{</span>
@@ -567,7 +567,7 @@ authentication_token: meowmeowmeow</code></p>
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://192.168.1.36:3000/api/v1/validate-service'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://turboboy.co:3000/api/v1/validate-service'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span> <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
      <span class="na">authentication_token</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">},</span>
@@ -604,7 +604,7 @@ authentication_token: meowmeowmeow</code></p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>this endpoint point calculates if a service is well formed</p>
+<p>This endpoint point calculates if a service is well formed</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET /api/v1/validate-service HTTP/1.1
 Host: turboboy.co:3000
@@ -658,7 +658,7 @@ Content-Type: application/json
 <td>String</td>
 <td>true</td>
 <td>doesn&#39;t apply</td>
-<td>Address provided by the Google Maps API and its predictive field</td>
+<td>Address provided by the user</td>
 </tr>
 <tr>
 <td>origin.contact</td>
@@ -686,7 +686,7 @@ Content-Type: application/json
 <td>String</td>
 <td>false</td>
 <td>doesn&#39;t apply</td>
-<td>Address provided by the Google Maps API and its predictive field</td>
+<td>Address provided by the user</td>
 </tr>
 </tbody></table>
 
