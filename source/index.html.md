@@ -10,7 +10,7 @@ toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - errors
+  #- errors
 
 search: true
 ---
@@ -227,4 +227,67 @@ Parameter | Type    | Mandatory | Default       | Description
 total_distance   | String  | true      | doesn't apply | Number of kilometers the service has
 has_procedures | Boolean  | false      | false | If the service has procedure
 return_origin | Boolean  | false      | false | If the service must return to the origin
+
+## Calculate service distance
+
+> Calculating services distance
+
+```shell
+curl -X GET \
+  'http://192.168.1.36:3000/api/v1/calc-distance?start_point=40.6655101,%20-73.8918&end_point=40.6905615,-73.9976592' \
+  -H 'authentication_token: meowmeowmeow
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'http://192.168.1.36:3000/api/v1/calc-distance',
+  qs: 
+   { start_point: '40.6655101,%20-73.8918',
+     end_point: '40.6905615,-73.9976592' },
+  headers: 
+   { 
+     authentication_token: 'meowmeowmeow' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> The successful JSON has the following structure:
+
+```json
+{
+  "response": 11
+}
+```
+
+> The failed JSON result has the following structure:
+
+```json
+{
+  "error_messages": [
+    "Deben existir 2 puntos para calcular la distancia"
+  ]
+}
+```
+
+this endpoint calculates the distance that must be covered for a service with points A and B
+
+### HTTP Request
+
+`GET /api/v1/calc-distance?start_point=40.6655101, -73.8918&amp; end_point=40.6905615,-73.9976592 HTTP/1.1
+Host: 192.168.1.36:3000
+authentication_token: meowmeowmeow`
+
+### Query Parameters
+
+Parameter | Type    | Mandatory | Default       | Description
+--------- | ------- | --------- | -----------   | -----------
+start_point   | String  | true      | doesn't apply | String with structure: latitude, longitude
+end_point | String  | true      | doesn't apply  | String with structure: latitude, longitude
+
 
