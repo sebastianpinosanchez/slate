@@ -390,3 +390,69 @@ origin.contact   | String  | true      | doesn't apply | Name of the person resp
 origin.comments   | String  | false      | doesn't apply | Service comments
 destinations[n].city_name   | String  | false      | doesn't apply | City ​​of final or intermediate point of the service
 destinations[n].address   | String  | false      | doesn't apply | Address provided by the user
+
+## Create service
+
+> Creating service
+
+```shell
+curl -X POST \
+  'http://192.168.1.36:3000/api/v1/create-service?uuid=b4428ac5111fbde9e8b5' \
+  -H 'authentication_token: meowmeowmeow \
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'http://192.168.1.36:3000/api/v1/create-service',
+  qs: { uuid: 'b4428ac5111fbde9e8b5' },
+  headers: 
+   { 
+     authentication_token: 'meowmeowmeow' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+
+```
+
+> The successful JSON has the following structure with: (uuid corresponds to the service cached on the server)
+
+```json
+{
+  "success_messages": [
+    "Servicio creado"
+  ],
+  "uuid": 1
+}
+```
+
+
+> The failed JSON result has the following structure:
+
+```json
+{
+    "error_messages": [
+        "Servicio expiró"
+    ],
+    "uuid": null
+}
+```
+
+This endpoint point calculates if a service is well formed
+
+### HTTP Request
+
+`POST /api/v1/create-service?uuid=b4428ac5111fbde9e8b5 HTTP/1.1
+Host: 192.168.1.36:3000
+authentication_token: meowmeowmeow`
+
+### Query Parameters
+
+Parameter | Type    | Mandatory | Default       | Description
+--------- | ------- | --------- | -----------   | -----------
+uuid   | String  | true      | doesn't apply | Unique identification provided by the validate_service endpoint
