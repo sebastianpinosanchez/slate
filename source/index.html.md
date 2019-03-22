@@ -8,6 +8,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <h2><a href='https://raw.githubusercontent.com/sebastianpinosanchez/slate/master/source/Turboboy%20API.postman_collection.json'>Postman Collection</a></h2>
 
 includes:
   #- errors
