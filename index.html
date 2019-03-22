@@ -245,6 +245,9 @@
                   <li>
                     <a href="#validate-service" class="toc-h2 toc-link" data-title="Validate service">Validate service</a>
                   </li>
+                  <li>
+                    <a href="#create-service" class="toc-h2 toc-link" data-title="Create service">Create service</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -687,6 +690,73 @@ Content-Type: application/json
 <td>false</td>
 <td>doesn&#39;t apply</td>
 <td>Address provided by the user</td>
+</tr>
+</tbody></table>
+<h2 id='create-service'>Create service</h2>
+<blockquote>
+<p>Creating service</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  <span class="s1">'http://192.168.1.36:3000/api/v1/create-service?uuid=b4428ac5111fbde9e8b5'</span> <span class="se">\</span>
+  -H <span class="s1">'authentication_token: meowmeowmeow \
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://192.168.1.36:3000/api/v1/create-service'</span><span class="p">,</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">uuid</span><span class="p">:</span> <span class="s1">'b4428ac5111fbde9e8b5'</span> <span class="p">},</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> 
+     <span class="na">authentication_token</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">}</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+
+</code></pre>
+<blockquote>
+<p>The successful JSON has the following structure with: (uuid corresponds to the service cached on the server)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Servicio creado"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>The failed JSON result has the following structure:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Servicio expiró"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint point calculates if a service is well formed</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST /api/v1/create-service?uuid=b4428ac5111fbde9e8b5 HTTP/1.1
+Host: 192.168.1.36:3000
+authentication_token: meowmeowmeow</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>Unique identification provided by the validate_service endpoint</td>
 </tr>
 </tbody></table>
 
