@@ -239,10 +239,13 @@
                   <li>
                     <a href="#calculate-service-fee" class="toc-h2 toc-link" data-title="Calculate service fee">Calculate service fee</a>
                   </li>
+                  <li>
+                    <a href="#calculate-service-distance" class="toc-h2 toc-link" data-title="Calculate service distance">Calculate service distance</a>
+                  </li>
+                  <li>
+                    <a href="#validate-service" class="toc-h2 toc-link" data-title="Validate service">Validate service</a>
+                  </li>
               </ul>
-          </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -264,11 +267,11 @@
 <p>To get the authorization token, execute the following code:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'http://192.168.1.36:3000/api/v1/sign_in?email=kitten@email.com&amp;password=kittenpassword'</span>
+  <span class="s1">'http://turboboy.co:3000/api/v1/sign_in?email=kitten@email.com&amp;password=kittenpassword'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://192.168.1.36:3000/api/v1/sign_in'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://turboboy.co:3000/api/v1/sign_in'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">email</span><span class="p">:</span> <span class="s1">'prueba@akt.com'</span><span class="p">,</span> <span class="na">password</span><span class="p">:</span> <span class="s1">'prueba'</span> <span class="p">},</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -297,7 +300,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /api/v1/sign_in?email=kitten@email.com&amp;amp; password=kittenpassword HTTP/1.1
-Host: 192.168.1.36:3000</code></p>
+Host: turboboy.co:3000</code></p>
 
 <p>Before making any request to the API it is necessary to obtain the authorization 
 token with the registered credentials in the turboboy system for the company.</p>
@@ -320,12 +323,12 @@ Remember add <code>authentication_token</code> to the header of all requests
 <p>Validating an address</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'http://192.168.1.36:3000/api/v1/validate-address?address=Centro%20Comercial%20Oviedo&amp;city_name=medellin'</span> <span class="se">\</span>
+  <span class="s1">'http://turboboy.co:3000/api/v1/validate-address?address=Centro%20Comercial%20Oviedo&amp;city_name=medellin'</span> <span class="se">\</span>
   -H <span class="s1">'meowmeowmeow'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://192.168.1.36:3000/api/v1/validate-address'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://turboboy.co:3000/api/v1/validate-address'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> 
    <span class="p">{</span> <span class="na">address</span><span class="p">:</span> <span class="s1">'Centro%20Comercial%20Oviedo'</span><span class="p">,</span>
      <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span> <span class="p">},</span>
@@ -364,7 +367,7 @@ Remember add <code>authentication_token</code> to the header of all requests
 <p>this end point allows validating if a direction is well formed and returns the coordinates of the point</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /api/v1/validate-address?address=Centro Comercial Oviedo&amp;amp; city_name=medellin HTTP/1.1
-Host: 192.168.1.36:3000
+Host: turboboy.co:3000
 authentication_token: meowmeowmeow</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -396,12 +399,12 @@ authentication_token: meowmeowmeow</code></p>
 <p>Calculating services fee</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'http://192.168.1.36:3000/api/v1/calc-fee?total_distance=9&amp;has_procedures=true&amp;return_origin=true'</span> <span class="se">\</span>
+  <span class="s1">'http://turboboy.co:3000/api/v1/calc-fee?total_distance=9&amp;has_procedures=true&amp;return_origin=true'</span> <span class="se">\</span>
   -H <span class="s1">'authentication_token: meowmeowmeow
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://192.168.1.36:3000/api/v1/calc-fee'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://turboboy.co:3000/api/v1/calc-fee'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> 
    <span class="p">{</span> <span class="na">total_distance</span><span class="p">:</span> <span class="s1">'9'</span><span class="p">,</span>
      <span class="na">has_procedures</span><span class="p">:</span> <span class="s1">'true'</span><span class="p">,</span>
@@ -438,7 +441,7 @@ authentication_token: meowmeowmeow</code></p>
 <p>this end point calculates the fee given the characteristics of a Service</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /api/v1/calc-fee?total_distance=9&amp;amp; has_procedures=true&amp;amp; return_origin=true HTTP/1.1
-Host: 192.168.1.36:3000
+Host: turboboy.co:3000
 authentication_token: meowmeowmeow</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -472,62 +475,218 @@ authentication_token: meowmeowmeow</code></p>
 <td>If the service must return to the origin</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
+<h2 id='calculate-service-distance'>Calculate service distance</h2>
+<blockquote>
+<p>Calculating services distance</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  <span class="s1">'http://turboboy.co:3000/api/v1/calc-distance?start_point=40.6655101,%20-73.8918&amp;end_point=40.6905615,-73.9976592'</span> <span class="se">\</span>
+  -H <span class="s1">'authentication_token: meowmeowmeow
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
-<p>The Kittn API uses the following error codes:</p>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://turboboy.co:3000/api/v1/calc-distance'</span><span class="p">,</span>
+  <span class="na">qs</span><span class="p">:</span> 
+   <span class="p">{</span> <span class="na">start_point</span><span class="p">:</span> <span class="s1">'40.6655101,%20-73.8918'</span><span class="p">,</span>
+     <span class="na">end_point</span><span class="p">:</span> <span class="s1">'40.6905615,-73.9976592'</span> <span class="p">},</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> 
+     <span class="na">authentication_token</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">}</span> <span class="p">};</span>
 
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The successful JSON has the following structure:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>The failed JSON result has the following structure:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Deben existir 2 puntos para calcular la distancia"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>this endpoint calculates the distance that must be covered for a service with points A and B</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET /api/v1/calc-distance?start_point=40.6655101, -73.8918&amp;amp; end_point=40.6905615,-73.9976592 HTTP/1.1
+Host: turboboy.co:3000
+authentication_token: meowmeowmeow</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>start_point</td>
+<td>String</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>String with structure: latitude, longitude</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>end_point</td>
+<td>String</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>String with structure: latitude, longitude</td>
+</tr>
+</tbody></table>
+<h2 id='validate-service'>Validate service</h2>
+<blockquote>
+<p>Validating service</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  http://192.168.1.36:3000/api/v1/validate-service <span class="se">\</span>
+  -H <span class="s1">'authentication_token: meowmeowmeow \
+  -d '</span><span class="o">{</span>
+    <span class="s2">"origin"</span>:<span class="o">{</span>
+        <span class="s2">"city_name"</span>:<span class="s2">"medellin"</span>,
+        <span class="s2">"address"</span>:<span class="s2">"Cra 43A ##6 Sur-15"</span>,
+        <span class="s2">"contact"</span>:<span class="s2">"Sebastian"</span>,
+        <span class="s2">"comments"</span>:<span class="s2">"Nothing"</span>
+    <span class="o">}</span>,
+    <span class="s2">"destinations"</span>:[<span class="o">{</span>
+        <span class="s2">"city_name"</span>:<span class="s2">"medellin"</span>,
+        <span class="s2">"address"</span>:<span class="s2">"Cra. 48 ##10 45"</span>
+    <span class="o">}]</span>
+<span class="o">}</span><span class="s1">'
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://192.168.1.36:3000/api/v1/validate-service'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="na">authentication_token</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> 
+   <span class="p">{</span> <span class="na">origin</span><span class="p">:</span> 
+      <span class="p">{</span> <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span><span class="p">,</span>
+        <span class="na">address</span><span class="p">:</span> <span class="s1">'Cra 43A ##6 Sur-15'</span><span class="p">,</span>
+        <span class="na">contact</span><span class="p">:</span> <span class="s1">'Sebastian'</span><span class="p">,</span>
+        <span class="na">comments</span><span class="p">:</span> <span class="s1">'Nothing'</span> <span class="p">},</span>
+     <span class="na">destinations</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span><span class="p">,</span> <span class="na">address</span><span class="p">:</span> <span class="s1">'Cra. 48 ##10 45'</span> <span class="p">}</span> <span class="p">]</span> <span class="p">},</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre>
+<blockquote>
+<p>The successful JSON has the following structure with: (uuid corresponds to the service cached on the server)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"904390f736af063b605b"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>The failed JSON result has the following structure:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Nombre ciudad es requerido"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Dirección es requerida"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>this endpoint point calculates if a service is well formed</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET /api/v1/validate-service HTTP/1.1
+Host: turboboy.co:3000
+authentication_token: meowmeowmeow
+Content-Type: application/json
+{
+    &quot;origin&quot;:{
+        &quot;city_name&quot;:&quot;medellin&quot;,
+        &quot;address&quot;:&quot;Cra 43A ##6 Sur-15&quot;,
+        &quot;contact&quot;:&quot;Sebastian&quot;,
+        &quot;comments&quot;:&quot;Nothing&quot;
+    },
+    &quot;destinations&quot;:[{
+        &quot;city_name&quot;:&quot;medellin&quot;,
+        &quot;address&quot;:&quot;Cra. 48 ##10 45&quot;
+    }]
+}</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>origin</td>
+<td>JSON</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>Information about the point of origin of the service</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>destinations</td>
+<td>Array</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>Information of the intermediate and final points for a service</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>origin.city_name</td>
+<td>String</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>City ​​of origin of the service</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>origin.address</td>
+<td>String</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>Address provided by the Google Maps API and its predictive field</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>origin.contact</td>
+<td>String</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>Name of the person responsible for the service</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>origin.comments</td>
+<td>String</td>
+<td>false</td>
+<td>doesn&#39;t apply</td>
+<td>Service comments</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>destinations[n].city_name</td>
+<td>String</td>
+<td>false</td>
+<td>doesn&#39;t apply</td>
+<td>City ​​of final or intermediate point of the service</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>destinations[n].address</td>
+<td>String</td>
+<td>false</td>
+<td>doesn&#39;t apply</td>
+<td>Address provided by the Google Maps API and its predictive field</td>
 </tr>
 </tbody></table>
 
