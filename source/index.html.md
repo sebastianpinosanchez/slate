@@ -17,7 +17,7 @@ search: true
 
 # Introduction
 
-Welcome to the documentation of the TurboBoy API!, you can use this api to manage services (create, get and update).
+Welcome to the documentation of the TurboBoy API!, you can use this API to manage services (create, get and update).
 
 We have several examples of each API route in **shell** and **javascript**, which help to understand the documentation.
 
@@ -144,7 +144,7 @@ request(options, function (error, response, body) {
 }
 ```
 
-this end point allows validating if a direction is well formed and returns the coordinates of the point
+This endpoint allows validating if a direction is well formed and returns the coordinates of the point
 
 ### HTTP Request
 
@@ -156,7 +156,7 @@ authentication_token: meowmeowmeow`
 
 Parameter | Type    | Mandatory | Default       | Description
 --------- | ------- | --------- | -----------   | -----------
-address   | String  | true      | doesn't apply | Address provided by the Google Maps API and its predictive field
+address   | String  | true      | doesn't apply | Address provided by the user
 city_name | String  | true      | doesn't apply | Name of the corresponding city of the address
 
 ## Calculate service fee
@@ -211,7 +211,7 @@ request(options, function (error, response, body) {
 }
 ```
 
-this end point calculates the fee given the characteristics of a Service
+This endpoint calculates the fee given the characteristics of a Service
 
 ### HTTP Request
 
@@ -275,7 +275,7 @@ request(options, function (error, response, body) {
 }
 ```
 
-this endpoint calculates the distance that must be covered for a service with points A and B
+This endpoint calculates the distance that must be covered for a service with points A and B
 
 ### HTTP Request
 
@@ -296,7 +296,7 @@ end_point | String  | true      | doesn't apply  | String with structure: latitu
 
 ```shell
 curl -X GET \
-  http://192.168.1.36:3000/api/v1/validate-service \
+  http://turboboy.co:3000/api/v1/validate-service \
   -H 'authentication_token: meowmeowmeow \
   -d '{
 	"origin":{
@@ -316,7 +316,7 @@ curl -X GET \
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'http://192.168.1.36:3000/api/v1/validate-service',
+  url: 'http://turboboy.co:3000/api/v1/validate-service',
   headers: 
    { 'Content-Type': 'application/json',
      authentication_token: 'meowmeowmeow' },
@@ -357,7 +357,7 @@ request(options, function (error, response, body) {
 }
 ```
 
-this endpoint point calculates if a service is well formed
+This endpoint point calculates if a service is well formed
 
 ### HTTP Request
 
@@ -385,8 +385,8 @@ Parameter | Type    | Mandatory | Default       | Description
 origin   | JSON  | true      | doesn't apply | Information about the point of origin of the service
 destinations | Array  | true      | doesn't apply  | Information of the intermediate and final points for a service
 origin.city_name   | String  | true      | doesn't apply | City ​​of origin of the service
-origin.address   | String  | true      | doesn't apply | Address provided by the Google Maps API and its predictive field
+origin.address   | String  | true      | doesn't apply | Address provided by the user
 origin.contact   | String  | true      | doesn't apply | Name of the person responsible for the service
 origin.comments   | String  | false      | doesn't apply | Service comments
 destinations[n].city_name   | String  | false      | doesn't apply | City ​​of final or intermediate point of the service
-destinations[n].address   | String  | false      | doesn't apply | Address provided by the Google Maps API and its predictive field
+destinations[n].address   | String  | false      | doesn't apply | Address provided by the user
