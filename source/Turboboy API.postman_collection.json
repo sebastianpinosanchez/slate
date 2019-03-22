@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "b2733ed3-4bd5-4252-a5c7-a47cc8b86623",
+		"name": "Turboboy API",
+		"description": "API documentation for turboboy company users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sign_in",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "turboboy.co/api/v1/sign_in?email=prueba@akt.com&password=prueba",
+					"host": [
+						"turboboy",
+						"co"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sign_in"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "prueba@akt.com"
+						},
+						{
+							"key": "password",
+							"value": "prueba"
+						}
+					]
+				},
+				"description": "sign_in method"
+			},
+			"response": []
+		},
+		{
+			"name": "validate-address",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authentication_token",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1ODQ2MzYzNDQsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.ecldObMfCC8AJMsD5Huhxal0AZQK1ssMKbW5nLmELXY"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "turboboy.co/api/v1/validate-address?address=Centro Comercial Oviedo&city_name=medellin",
+					"host": [
+						"turboboy",
+						"co"
+					],
+					"path": [
+						"api",
+						"v1",
+						"validate-address"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "Centro Comercial Oviedo"
+						},
+						{
+							"key": "city_name",
+							"value": "medellin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calc-fee",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authentication_token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1ODQ2MzYzNDQsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.ecldObMfCC8AJMsD5Huhxal0AZQK1ssMKbW5nLmELXY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "turboboy.co/api/v1/calc-fee?total_distance=9&has_procedures=true&return_origin=true",
+					"host": [
+						"turboboy",
+						"co"
+					],
+					"path": [
+						"api",
+						"v1",
+						"calc-fee"
+					],
+					"query": [
+						{
+							"key": "total_distance",
+							"value": "9"
+						},
+						{
+							"key": "has_procedures",
+							"value": "true"
+						},
+						{
+							"key": "return_origin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calc-distance",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authentication_token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1ODQ2MzYzNDQsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.ecldObMfCC8AJMsD5Huhxal0AZQK1ssMKbW5nLmELXY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "turboboy.co/api/v1/calc-distance?start_point=40.6655101, -73.8918&end_point=40.6905615,-73.9976592",
+					"host": [
+						"turboboy",
+						"co"
+					],
+					"path": [
+						"api",
+						"v1",
+						"calc-distance"
+					],
+					"query": [
+						{
+							"key": "start_point",
+							"value": "40.6655101, -73.8918"
+						},
+						{
+							"key": "end_point",
+							"value": "40.6905615,-73.9976592"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate-services",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authentication_token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1ODQ2MzYzNDQsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.ecldObMfCC8AJMsD5Huhxal0AZQK1ssMKbW5nLmELXY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"origin\":{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra 43A ##6 Sur-15\",\n\t\t\"contact\":\"Sebastian\",\n\t\t\"comments\":\"Nothing\"\n\t},\n\t\"destinations\":[{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra. 48 ##10 45\"\n\t}]\n}"
+				},
+				"url": {
+					"raw": "turboboy.co/api/v1/validate-service",
+					"host": [
+						"turboboy",
+						"co"
+					],
+					"path": [
+						"api",
+						"v1",
+						"validate-service"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-service",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authentication_token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1ODQ2MzYzNDQsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.ecldObMfCC8AJMsD5Huhxal0AZQK1ssMKbW5nLmELXY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "turboboy.co/api/v1/create-service?uuid=b4428ac5111fbde9e8b5",
+					"host": [
+						"turboboy",
+						"co"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create-service"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "b4428ac5111fbde9e8b5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
