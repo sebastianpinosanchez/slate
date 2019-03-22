@@ -29,14 +29,14 @@ This example API documentation page was created with [Slate](https://github.com/
 
 ```shell
 curl -X GET \
-  'http://192.168.1.36:3000/api/v1/sign_in?email=kitten@email.com&password=kittenpassword'
+  'http://turboboy.co:3000/api/v1/sign_in?email=kitten@email.com&password=kittenpassword'
 ```
 
 ```javascript
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'http://192.168.1.36:3000/api/v1/sign_in',
+  url: 'http://turboboy.co:3000/api/v1/sign_in',
   qs: { email: 'prueba@akt.com', password: 'prueba' },
 
 request(options, function (error, response, body) {
@@ -70,7 +70,7 @@ request(options, function (error, response, body) {
 ### HTTP Request
 
 `GET /api/v1/sign_in?email=kitten@email.com&amp; password=kittenpassword HTTP/1.1
-Host: 192.168.1.36:3000`
+Host: turboboy.co:3000`
 
 Before making any request to the API it is necessary to obtain the authorization 
 token with the registered credentials in the turboboy system for the company.
@@ -97,7 +97,7 @@ Remember add <code>authentication_token</code> to the header of all requests
 
 ```shell
 curl -X GET \
-  'http://192.168.1.36:3000/api/v1/validate-address?address=Centro%20Comercial%20Oviedo&city_name=medellin' \
+  'http://turboboy.co:3000/api/v1/validate-address?address=Centro%20Comercial%20Oviedo&city_name=medellin' \
   -H 'meowmeowmeow'
 ```
 
@@ -105,7 +105,7 @@ curl -X GET \
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'http://192.168.1.36:3000/api/v1/validate-address',
+  url: 'http://turboboy.co:3000/api/v1/validate-address',
   qs: 
    { address: 'Centro%20Comercial%20Oviedo',
      city_name: 'medellin' },
@@ -149,7 +149,7 @@ this end point allows validating if a direction is well formed and returns the c
 ### HTTP Request
 
 `GET /api/v1/validate-address?address=Centro Comercial Oviedo&amp; city_name=medellin HTTP/1.1
-Host: 192.168.1.36:3000
+Host: turboboy.co:3000
 authentication_token: meowmeowmeow`
 
 ### Query Parameters
@@ -166,7 +166,7 @@ city_name | String  | true      | doesn't apply | Name of the corresponding city
 
 ```shell
 curl -X GET \
-  'http://192.168.1.36:3000/api/v1/calc-fee?total_distance=9&has_procedures=true&return_origin=true' \
+  'http://turboboy.co:3000/api/v1/calc-fee?total_distance=9&has_procedures=true&return_origin=true' \
   -H 'authentication_token: meowmeowmeow
 ```
 
@@ -174,7 +174,7 @@ curl -X GET \
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'http://192.168.1.36:3000/api/v1/calc-fee',
+  url: 'http://turboboy.co:3000/api/v1/calc-fee',
   qs: 
    { total_distance: '9',
      has_procedures: 'true',
@@ -216,7 +216,7 @@ this end point calculates the fee given the characteristics of a Service
 ### HTTP Request
 
 `GET /api/v1/calc-fee?total_distance=9&amp; has_procedures=true&amp; return_origin=true HTTP/1.1
-Host: 192.168.1.36:3000
+Host: turboboy.co:3000
 authentication_token: meowmeowmeow`
 
 
@@ -234,7 +234,7 @@ return_origin | Boolean  | false      | false | If the service must return to th
 
 ```shell
 curl -X GET \
-  'http://192.168.1.36:3000/api/v1/calc-distance?start_point=40.6655101,%20-73.8918&end_point=40.6905615,-73.9976592' \
+  'http://turboboy.co:3000/api/v1/calc-distance?start_point=40.6655101,%20-73.8918&end_point=40.6905615,-73.9976592' \
   -H 'authentication_token: meowmeowmeow
 ```
 
@@ -242,7 +242,7 @@ curl -X GET \
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'http://192.168.1.36:3000/api/v1/calc-distance',
+  url: 'http://turboboy.co:3000/api/v1/calc-distance',
   qs: 
    { start_point: '40.6655101,%20-73.8918',
      end_point: '40.6905615,-73.9976592' },
@@ -280,7 +280,7 @@ this endpoint calculates the distance that must be covered for a service with po
 ### HTTP Request
 
 `GET /api/v1/calc-distance?start_point=40.6655101, -73.8918&amp; end_point=40.6905615,-73.9976592 HTTP/1.1
-Host: 192.168.1.36:3000
+Host: turboboy.co:3000
 authentication_token: meowmeowmeow`
 
 ### Query Parameters
@@ -290,4 +290,103 @@ Parameter | Type    | Mandatory | Default       | Description
 start_point   | String  | true      | doesn't apply | String with structure: latitude, longitude
 end_point | String  | true      | doesn't apply  | String with structure: latitude, longitude
 
+## Validate service
 
+> Validating service
+
+```shell
+curl -X GET \
+  http://192.168.1.36:3000/api/v1/validate-service \
+  -H 'authentication_token: meowmeowmeow \
+  -d '{
+	"origin":{
+		"city_name":"medellin",
+		"address":"Cra 43A ##6 Sur-15",
+		"contact":"Sebastian",
+		"comments":"Nothing"
+	},
+	"destinations":[{
+		"city_name":"medellin",
+		"address":"Cra. 48 ##10 45"
+	}]
+}'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'http://192.168.1.36:3000/api/v1/validate-service',
+  headers: 
+   { 'Content-Type': 'application/json',
+     authentication_token: 'meowmeowmeow' },
+  body: 
+   { origin: 
+      { city_name: 'medellin',
+        address: 'Cra 43A ##6 Sur-15',
+        contact: 'Sebastian',
+        comments: 'Nothing' },
+     destinations: [ { city_name: 'medellin', address: 'Cra. 48 ##10 45' } ] },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+```
+
+> The successful JSON has the following structure with: (uuid corresponds to the service cached on the server)
+
+```json
+{
+  "uuid": "904390f736af063b605b"
+}
+```
+
+
+> The failed JSON result has the following structure:
+
+```json
+{
+  "error_messages": [
+    "Nombre ciudad es requerido",
+    "Dirección es requerida"
+  ]
+}
+```
+
+this endpoint point calculates if a service is well formed
+
+### HTTP Request
+
+`GET /api/v1/validate-service HTTP/1.1
+Host: turboboy.co:3000
+authentication_token: meowmeowmeow
+Content-Type: application/json
+{
+	"origin":{
+		"city_name":"medellin",
+		"address":"Cra 43A ##6 Sur-15",
+		"contact":"Sebastian",
+		"comments":"Nothing"
+	},
+	"destinations":[{
+		"city_name":"medellin",
+		"address":"Cra. 48 ##10 45"
+	}]
+}`
+
+### Query Parameters
+
+Parameter | Type    | Mandatory | Default       | Description
+--------- | ------- | --------- | -----------   | -----------
+origin   | JSON  | true      | doesn't apply | Information about the point of origin of the service
+destinations | Array  | true      | doesn't apply  | Information of the intermediate and final points for a service
+origin.city_name   | String  | true      | doesn't apply | City ​​of origin of the service
+origin.address   | String  | true      | doesn't apply | Address provided by the Google Maps API and its predictive field
+origin.contact   | String  | true      | doesn't apply | Name of the person responsible for the service
+origin.comments   | String  | false      | doesn't apply | Service comments
+destinations[n].city_name   | String  | false      | doesn't apply | City ​​of final or intermediate point of the service
+destinations[n].address   | String  | false      | doesn't apply | Address provided by the Google Maps API and its predictive field
