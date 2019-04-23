@@ -254,6 +254,7 @@
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><h2><a href='https://raw.githubusercontent.com/sebastianpinosanchez/slate/master/source/Turboboy%20API.postman_collection.json'>Postman Collection</a></h2></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -554,6 +555,7 @@ authentication_token: meowmeowmeow</code></p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
   http://turboboy.co:3000/api/v1/validate-service <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'authentication_token: meowmeowmeow \
   -d '</span><span class="o">{</span>
     <span class="s2">"origin"</span>:<span class="o">{</span>
