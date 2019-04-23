@@ -298,6 +298,7 @@ end_point | String  | true      | doesn't apply  | String with structure: latitu
 ```shell
 curl -X GET \
   http://turboboy.co:3000/api/v1/validate-service \
+  -H 'Content-Type: application/json' \
   -H 'authentication_token: meowmeowmeow \
   -d '{
 	"origin":{
