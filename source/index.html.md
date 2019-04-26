@@ -90,6 +90,10 @@ You must replace <code>kittenpassword</code> with the password associated with <
 
 ## Validate an address
 
+The cities for the city_name field are:
+
+["Medellín","Bello","Caldas","Envigado","Guarne","Itagüí","La Estrella","Marinilla","Rionegro","Sabaneta","San Antonio de Prado","Copacabana","Girardota","Barbosa","El alto de las palmas","El Retiro","La Ceja","La Union"]
+
 <aside class="success">
 Remember add <code>authentication_token</code> to the header of all requests
 </aside>
