@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b2733ed3-4bd5-4252-a5c7-a47cc8b86623",
+		"_postman_id": "6513406d-4f17-4093-9b50-e886d238cca4",
 		"name": "Turboboy API",
 		"description": "API documentation for turboboy company users",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -234,6 +234,42 @@
 						{
 							"key": "uuid",
 							"value": "b4428ac5111fbde9e8b5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "service-status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authentication_token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "turboboy.co/api/v1/service-status?uuid=1",
+					"host": [
+						"turboboy",
+						"co"
+					],
+					"path": [
+						"api",
+						"v1",
+						"service-status"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "1"
 						}
 					]
 				}
