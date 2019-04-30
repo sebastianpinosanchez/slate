@@ -462,3 +462,65 @@ authentication_token: meowmeowmeow`
 Parameter | Type    | Mandatory | Default       | Description
 --------- | ------- | --------- | -----------   | -----------
 uuid   | String  | true      | doesn't apply | Unique identification provided by the validate_service endpoint
+
+## Get service status
+
+> Getting service status
+
+```shell
+curl -X GET \
+  'http://localhost:3000/api/v1/service-status?uuid=1' \
+  -H 'authentication_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'http://localhost:3000/api/v1/service-status',
+  qs: { uuid: '1' },
+  headers: 
+   {
+     authentication_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+```
+
+> The successful JSON has the following structure
+
+```json
+{
+    "status": "Creado"
+}
+```
+
+
+> The failed JSON result has the following structure:
+
+```json
+{
+    "error_messages": [
+        "Servicio no existe"
+    ]
+}
+```
+
+This endpoint provides the status of a service
+
+### HTTP Request
+
+`GET /api/v1/service-status?uuid=1 HTTP/1.1
+Host: localhost:3000
+authentication_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI`
+
+### Query Parameters
+
+Parameter | Type    | Mandatory | Default       | Description
+--------- | ------- | --------- | -----------   | -----------
+uuid   | String  | true      | doesn't apply | uuid provided in the creation of the service
+
