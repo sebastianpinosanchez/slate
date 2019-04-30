@@ -24,20 +24,23 @@ We have several examples of each API route in **shell** and **javascript**, whic
 
 This example API documentation page was created with [Slate](https://github.com/lord/slate).
 
+1. **Production Host:** _turboboy.co_
+2. **Development host:** _dev2.turboboy.co_
+
 # Authentication
 
 > To get the authorization token, execute the following code:
 
 ```shell
 curl -X GET \
-  'http://turboboy.co:3000/api/v1/sign_in?email=kitten@email.com&password=kittenpassword'
+  'https://turboboy.co/api/v1/sign_in?email=kitten@email.com&password=kittenpassword'
 ```
 
 ```javascript
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'http://turboboy.co:3000/api/v1/sign_in',
+  url: 'https://turboboy.co/api/v1/sign_in',
   qs: { email: 'prueba@akt.com', password: 'prueba' },
 
 request(options, function (error, response, body) {
@@ -71,7 +74,7 @@ request(options, function (error, response, body) {
 ### HTTP Request
 
 `GET /api/v1/sign_in?email=kitten@email.com&amp; password=kittenpassword HTTP/1.1
-Host: turboboy.co:3000`
+Host: turboboy.co`
 
 Before making any request to the API it is necessary to obtain the authorization 
 token with the registered credentials in the turboboy system for the company.
@@ -102,7 +105,7 @@ Remember add <code>authentication_token</code> to the header of all requests
 
 ```shell
 curl -X GET \
-  'http://turboboy.co:3000/api/v1/validate-address?address=Centro%20Comercial%20Oviedo&city_name=medellin' \
+  'https://turboboy.co/api/v1/validate-address?address=Centro%20Comercial%20Oviedo&city_name=medellin' \
   -H 'meowmeowmeow'
 ```
 
@@ -110,7 +113,7 @@ curl -X GET \
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'http://turboboy.co:3000/api/v1/validate-address',
+  url: 'https://turboboy.co/api/v1/validate-address',
   qs: 
    { address: 'Centro%20Comercial%20Oviedo',
      city_name: 'medellin' },
@@ -154,7 +157,7 @@ This endpoint allows validating if a direction is well formed and returns the co
 ### HTTP Request
 
 `GET /api/v1/validate-address?address=Centro Comercial Oviedo&amp; city_name=medellin HTTP/1.1
-Host: turboboy.co:3000
+Host: turboboy.co
 authentication_token: meowmeowmeow`
 
 ### Query Parameters
@@ -171,7 +174,7 @@ city_name | String  | true      | doesn't apply | Name of the corresponding city
 
 ```shell
 curl -X GET \
-  'http://turboboy.co:3000/api/v1/calc-fee?total_distance=9&has_procedures=true&return_origin=true' \
+  'https://turboboy.co/api/v1/calc-fee?total_distance=9&has_procedures=true&return_origin=true' \
   -H 'authentication_token: meowmeowmeow
 ```
 
@@ -179,7 +182,7 @@ curl -X GET \
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'http://turboboy.co:3000/api/v1/calc-fee',
+  url: 'https://turboboy.co/api/v1/calc-fee',
   qs: 
    { total_distance: '9',
      has_procedures: 'true',
@@ -221,7 +224,7 @@ This endpoint calculates the fee given the characteristics of a Service
 ### HTTP Request
 
 `GET /api/v1/calc-fee?total_distance=9&amp; has_procedures=true&amp; return_origin=true HTTP/1.1
-Host: turboboy.co:3000
+Host: turboboy.co
 authentication_token: meowmeowmeow`
 
 
@@ -239,7 +242,7 @@ return_origin | Boolean  | false      | false | If the service must return to th
 
 ```shell
 curl -X GET \
-  'http://turboboy.co:3000/api/v1/calc-distance?start_point=40.6655101,%20-73.8918&end_point=40.6905615,-73.9976592' \
+  'https://turboboy.co/api/v1/calc-distance?start_point=40.6655101,%20-73.8918&end_point=40.6905615,-73.9976592' \
   -H 'authentication_token: meowmeowmeow
 ```
 
@@ -247,7 +250,7 @@ curl -X GET \
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'http://turboboy.co:3000/api/v1/calc-distance',
+  url: 'https://turboboy.co/api/v1/calc-distance',
   qs: 
    { start_point: '40.6655101,%20-73.8918',
      end_point: '40.6905615,-73.9976592' },
@@ -285,7 +288,7 @@ This endpoint calculates the distance that must be covered for a service with po
 ### HTTP Request
 
 `GET /api/v1/calc-distance?start_point=40.6655101, -73.8918&amp; end_point=40.6905615,-73.9976592 HTTP/1.1
-Host: turboboy.co:3000
+Host: turboboy.co
 authentication_token: meowmeowmeow`
 
 ### Query Parameters
@@ -301,7 +304,7 @@ end_point | String  | true      | doesn't apply  | String with structure: latitu
 
 ```shell
 curl -X GET \
-  http://turboboy.co:3000/api/v1/validate-service \
+  https://turboboy.co/api/v1/validate-service \
   -H 'Content-Type: application/json' \
   -H 'authentication_token: meowmeowmeow \
   -d '{
@@ -322,7 +325,7 @@ curl -X GET \
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'http://turboboy.co:3000/api/v1/validate-service',
+  url: 'https://turboboy.co/api/v1/validate-service',
   headers: 
    { 'Content-Type': 'application/json',
      authentication_token: 'meowmeowmeow' },
@@ -403,7 +406,7 @@ destinations[n].address   | String  | false      | doesn't apply | Address provi
 
 ```shell
 curl -X POST \
-  'http://192.168.1.36:3000/api/v1/create-service?uuid=b4428ac5111fbde9e8b5' \
+  'https://turboboy.co/api/v1/create-service?uuid=b4428ac5111fbde9e8b5' \
   -H 'authentication_token: meowmeowmeow \
 ```
 
@@ -411,7 +414,7 @@ curl -X POST \
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'http://192.168.1.36:3000/api/v1/create-service',
+  url: 'https://turboboy.co/api/v1/create-service',
   qs: { uuid: 'b4428ac5111fbde9e8b5' },
   headers: 
    { 
@@ -454,7 +457,7 @@ This endpoint point calculates if a service is well formed
 ### HTTP Request
 
 `POST /api/v1/create-service?uuid=b4428ac5111fbde9e8b5 HTTP/1.1
-Host: 192.168.1.36:3000
+Host: turboboy.co
 authentication_token: meowmeowmeow`
 
 ### Query Parameters
@@ -469,7 +472,7 @@ uuid   | String  | true      | doesn't apply | Unique identification provided by
 
 ```shell
 curl -X GET \
-  'http://localhost:3000/api/v1/service-status?uuid=1' \
+  'https://turboboy.co/api/v1/service-status?uuid=1' \
   -H 'authentication_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI'
 ```
 
@@ -477,7 +480,7 @@ curl -X GET \
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'http://localhost:3000/api/v1/service-status',
+  url: 'https://turboboy.co/api/v1/service-status',
   qs: { uuid: '1' },
   headers: 
    {
@@ -515,7 +518,7 @@ This endpoint provides the status of a service
 ### HTTP Request
 
 `GET /api/v1/service-status?uuid=1 HTTP/1.1
-Host: localhost:3000
+Host: turboboy.co
 authentication_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI`
 
 ### Query Parameters
