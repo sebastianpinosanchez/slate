@@ -500,6 +500,24 @@ request(options, function (error, response, body) {
 {
     "status": "Creado"
 }
+{
+    "status": "Asignado a mensajero"
+}
+{
+    "status": "Paquete recogido por el mensajero"
+}
+{
+    "status": "Paquete entregado"
+}
+{
+    "status": "Cancelado por el usuario"
+}
+{
+    "status": "Cancelado por el mensajero"
+}
+{
+    "status": "Servicio Expiró"
+}
 ```
 
 
