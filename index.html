@@ -332,7 +332,7 @@ You must replace <code>kittenpassword</code> with the password associated with <
 <p>[&quot;Medellín&quot;,&quot;Bello&quot;,&quot;Caldas&quot;,&quot;Envigado&quot;,&quot;Guarne&quot;,&quot;Itagüí&quot;,&quot;La Estrella&quot;,&quot;Marinilla&quot;,&quot;Rionegro&quot;,&quot;Sabaneta&quot;,&quot;San Antonio de Prado&quot;,&quot;Copacabana&quot;,&quot;Girardota&quot;,&quot;Barbosa&quot;,&quot;El alto de las palmas&quot;,&quot;El Retiro&quot;,&quot;La Ceja&quot;,&quot;La Union&quot;]</p>
 
 <aside class="success">
-Remember add <code>authentication_token</code> to the header of all requests
+Remember add <code>authentication-token</code> to the header of all requests
 </aside>
 
 <blockquote>
@@ -350,7 +350,7 @@ Remember add <code>authentication_token</code> to the header of all requests
      <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span> <span class="p">},</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span> 
-     <span class="na">authentication_token</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span>
+     <span class="s1">'authentication-token'</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span>
     <span class="p">}</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -384,7 +384,7 @@ Remember add <code>authentication_token</code> to the header of all requests
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /api/v1/validate-address?address=Centro Comercial Oviedo&amp;amp; city_name=medellin HTTP/1.1
 Host: turboboy.co
-authentication_token: meowmeowmeow</code></p>
+authentication-token: meowmeowmeow</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -416,8 +416,8 @@ authentication_token: meowmeowmeow</code></p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
   <span class="s1">'https://turboboy.co/api/v1/calc-fee?total_distance=9&amp;has_procedures=true&amp;return_origin=true'</span> <span class="se">\</span>
-  -H <span class="s1">'authentication_token: meowmeowmeow
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+  -H <span class="s1">'authentication-token: meowmeowmeow'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="s1">'https://turboboy.co/api/v1/calc-fee'</span><span class="p">,</span>
@@ -427,7 +427,7 @@ authentication_token: meowmeowmeow</code></p>
      <span class="na">return_origin</span><span class="p">:</span> <span class="s1">'true'</span> <span class="p">},</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span> 
-     <span class="na">authentication_token</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">}</span> <span class="p">};</span>
+     <span class="s1">'authentication-token'</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">}</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -458,7 +458,7 @@ authentication_token: meowmeowmeow</code></p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /api/v1/calc-fee?total_distance=9&amp;amp; has_procedures=true&amp;amp; return_origin=true HTTP/1.1
 Host: turboboy.co
-authentication_token: meowmeowmeow</code></p>
+authentication-token: meowmeowmeow</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -497,8 +497,8 @@ authentication_token: meowmeowmeow</code></p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
   <span class="s1">'https://turboboy.co/api/v1/calc-distance?start_point=40.6655101,%20-73.8918&amp;end_point=40.6905615,-73.9976592'</span> <span class="se">\</span>
-  -H <span class="s1">'authentication_token: meowmeowmeow
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+  -H <span class="s1">'authentication-token: meowmeowmeow'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="s1">'https://turboboy.co/api/v1/calc-distance'</span><span class="p">,</span>
@@ -507,7 +507,7 @@ authentication_token: meowmeowmeow</code></p>
      <span class="na">end_point</span><span class="p">:</span> <span class="s1">'40.6905615,-73.9976592'</span> <span class="p">},</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span> 
-     <span class="na">authentication_token</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">}</span> <span class="p">};</span>
+     <span class="s1">'authentication-token'</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">}</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -535,7 +535,7 @@ authentication_token: meowmeowmeow</code></p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /api/v1/calc-distance?start_point=40.6655101, -73.8918&amp;amp; end_point=40.6905615,-73.9976592 HTTP/1.1
 Host: turboboy.co
-authentication_token: meowmeowmeow</code></p>
+authentication-token: meowmeowmeow</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -568,7 +568,7 @@ authentication_token: meowmeowmeow</code></p>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
   https://turboboy.co/api/v1/validate-service <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'authentication_token: meowmeowmeow \
+  -H <span class="s1">'authentication-token: meowmeowmeow \
   -d '</span><span class="o">{</span>
     <span class="s2">"origin"</span>:<span class="o">{</span>
         <span class="s2">"city_name"</span>:<span class="s2">"medellin"</span>,
@@ -587,7 +587,7 @@ authentication_token: meowmeowmeow</code></p>
   <span class="na">url</span><span class="p">:</span> <span class="s1">'https://turboboy.co/api/v1/validate-service'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span> <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-     <span class="na">authentication_token</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">},</span>
+     <span class="s1">'authentication-token'</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">},</span>
   <span class="na">body</span><span class="p">:</span> 
    <span class="p">{</span> <span class="na">origin</span><span class="p">:</span> 
       <span class="p">{</span> <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span><span class="p">,</span>
@@ -625,7 +625,7 @@ authentication_token: meowmeowmeow</code></p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET /api/v1/validate-service HTTP/1.1
 Host: turboboy.co:3000
-authentication_token: meowmeowmeow
+authentication-token: meowmeowmeow
 Content-Type: application/json
 {
     &quot;origin&quot;:{
@@ -712,7 +712,7 @@ Content-Type: application/json
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
   <span class="s1">'https://turboboy.co/api/v1/create-service?uuid=b4428ac5111fbde9e8b5'</span> <span class="se">\</span>
-  -H <span class="s1">'authentication_token: meowmeowmeow \
+  -H <span class="s1">'authentication-token: meowmeowmeow \
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
@@ -720,7 +720,7 @@ Content-Type: application/json
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">uuid</span><span class="p">:</span> <span class="s1">'b4428ac5111fbde9e8b5'</span> <span class="p">},</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span> 
-     <span class="na">authentication_token</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">}</span> <span class="p">};</span>
+     <span class="s1">'authentication-token'</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">}</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -754,7 +754,7 @@ Content-Type: application/json
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST /api/v1/create-service?uuid=b4428ac5111fbde9e8b5 HTTP/1.1
 Host: turboboy.co
-authentication_token: meowmeowmeow</code></p>
+authentication-token: meowmeowmeow</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -779,7 +779,7 @@ authentication_token: meowmeowmeow</code></p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
   <span class="s1">'https://turboboy.co/api/v1/service-status?uuid=1'</span> <span class="se">\</span>
-  -H <span class="s1">'authentication_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI'</span>
+  -H <span class="s1">'authentication-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
@@ -787,7 +787,7 @@ authentication_token: meowmeowmeow</code></p>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">uuid</span><span class="p">:</span> <span class="s1">'1'</span> <span class="p">},</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span>
-     <span class="na">authentication_token</span><span class="p">:</span> <span class="s1">'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI'</span> <span class="p">}</span> <span class="p">};</span>
+     <span class="s1">'authentication-token'</span><span class="p">:</span> <span class="s1">'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI'</span> <span class="p">}</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -800,26 +800,66 @@ authentication_token: meowmeowmeow</code></p>
 <p>The successful JSON has the following structure</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creado"</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creado"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fees"</span><span class="p">:</span><span class="w"> </span><span class="mi">6500</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asignado a mensajero"</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asignado a mensajero"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fees"</span><span class="p">:</span><span class="w"> </span><span class="mi">6500</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deliveryboy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivery boy name"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paquete recogido por el mensajero"</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paquete recogido por el mensajero"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fees"</span><span class="p">:</span><span class="w"> </span><span class="mi">6500</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deliveryboy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivery boy name"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paquete entregado"</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paquete entregado"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fees"</span><span class="p">:</span><span class="w"> </span><span class="mi">6500</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deliveryboy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivery boy name"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelado por el usuario"</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelado por el usuario"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fees"</span><span class="p">:</span><span class="w"> </span><span class="mi">6500</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelado por el mensajero"</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelado por el mensajero"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fees"</span><span class="p">:</span><span class="w"> </span><span class="mi">6500</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Servicio Expiró"</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Servicio Expiró"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fees"</span><span class="p">:</span><span class="w"> </span><span class="mi">6500</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 <blockquote>
 <p>The failed JSON result has the following structure:</p>
@@ -834,7 +874,7 @@ authentication_token: meowmeowmeow</code></p>
 <h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET /api/v1/service-status?uuid=1 HTTP/1.1
 Host: turboboy.co
-authentication_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI</code></p>
+authentication-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI</code></p>
 <h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
