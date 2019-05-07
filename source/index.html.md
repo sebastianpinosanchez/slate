@@ -498,26 +498,66 @@ request(options, function (error, response, body) {
 
 ```json
 {
-    "status": "Creado"
+    "status": "Creado",
+    "code": 0,
+    "fees": 6500,
+    "distance": 4
 }
+
 {
-    "status": "Asignado a mensajero"
+    "status": "Asignado a mensajero",
+    "code": 1,
+    "fees": 6500,
+    "distance": 4,
+    "deliveryboy": {
+        "phone": "1234567890",
+        "name": "Delivery boy name"
+    }
 }
+
 {
-    "status": "Paquete recogido por el mensajero"
+    "status": "Paquete recogido por el mensajero",
+    "code": 2,
+    "fees": 6500,
+    "distance": 4,
+    "deliveryboy": {
+        "phone": "1234567890",
+        "name": "Delivery boy name"
+    }
 }
+
 {
-    "status": "Paquete entregado"
+    "status": "Paquete entregado",
+    "code": 3,
+    "fees": 6500,
+    "distance": 4,
+    "deliveryboy": {
+        "phone": "1234567890",
+        "name": "Delivery boy name"
+    }
 }
+
 {
-    "status": "Cancelado por el usuario"
+    "status": "Cancelado por el usuario",
+    "code": 4,
+    "fees": 6500,
+    "distance": 4
 }
+
 {
-    "status": "Cancelado por el mensajero"
+    "status": "Cancelado por el mensajero",
+    "code": 5,
+    "fees": 6500,
+    "distance": 4
 }
+
 {
-    "status": "Servicio Expiró"
+    "status": "Servicio Expiró",
+    "code": 6,
+    "fees": 6500,
+    "distance": 4
 }
+
 ```
 
 
