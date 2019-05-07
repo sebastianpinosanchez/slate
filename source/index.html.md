@@ -98,7 +98,7 @@ The cities for the city_name field are:
 ["Medellín","Bello","Caldas","Envigado","Guarne","Itagüí","La Estrella","Marinilla","Rionegro","Sabaneta","San Antonio de Prado","Copacabana","Girardota","Barbosa","El alto de las palmas","El Retiro","La Ceja","La Union"]
 
 <aside class="success">
-Remember add <code>authentication_token</code> to the header of all requests
+Remember add <code>authentication-token</code> to the header of all requests
 </aside>
 
 > Validating an address
@@ -119,7 +119,7 @@ var options = { method: 'GET',
      city_name: 'medellin' },
   headers: 
    { 
-     authentication_token: 'meowmeowmeow'
+     'authentication-token': 'meowmeowmeow'
     } };
 
 request(options, function (error, response, body) {
@@ -158,7 +158,7 @@ This endpoint allows validating if a direction is well formed and returns the co
 
 `GET /api/v1/validate-address?address=Centro Comercial Oviedo&amp; city_name=medellin HTTP/1.1
 Host: turboboy.co
-authentication_token: meowmeowmeow`
+authentication-token: meowmeowmeow`
 
 ### Query Parameters
 
@@ -175,7 +175,7 @@ city_name | String  | true      | doesn't apply | Name of the corresponding city
 ```shell
 curl -X GET \
   'https://turboboy.co/api/v1/calc-fee?total_distance=9&has_procedures=true&return_origin=true' \
-  -H 'authentication_token: meowmeowmeow
+  -H 'authentication-token: meowmeowmeow'
 ```
 
 ```javascript
@@ -189,7 +189,7 @@ var options = { method: 'GET',
      return_origin: 'true' },
   headers: 
    { 
-     authentication_token: 'meowmeowmeow' } };
+     'authentication-token': 'meowmeowmeow' } };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -225,7 +225,7 @@ This endpoint calculates the fee given the characteristics of a Service
 
 `GET /api/v1/calc-fee?total_distance=9&amp; has_procedures=true&amp; return_origin=true HTTP/1.1
 Host: turboboy.co
-authentication_token: meowmeowmeow`
+authentication-token: meowmeowmeow`
 
 
 ### Query Parameters
@@ -243,7 +243,7 @@ return_origin | Boolean  | false      | false | If the service must return to th
 ```shell
 curl -X GET \
   'https://turboboy.co/api/v1/calc-distance?start_point=40.6655101,%20-73.8918&end_point=40.6905615,-73.9976592' \
-  -H 'authentication_token: meowmeowmeow
+  -H 'authentication-token: meowmeowmeow'
 ```
 
 ```javascript
@@ -256,7 +256,7 @@ var options = { method: 'GET',
      end_point: '40.6905615,-73.9976592' },
   headers: 
    { 
-     authentication_token: 'meowmeowmeow' } };
+     'authentication-token': 'meowmeowmeow' } };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -289,7 +289,7 @@ This endpoint calculates the distance that must be covered for a service with po
 
 `GET /api/v1/calc-distance?start_point=40.6655101, -73.8918&amp; end_point=40.6905615,-73.9976592 HTTP/1.1
 Host: turboboy.co
-authentication_token: meowmeowmeow`
+authentication-token: meowmeowmeow`
 
 ### Query Parameters
 
@@ -306,7 +306,7 @@ end_point | String  | true      | doesn't apply  | String with structure: latitu
 curl -X GET \
   https://turboboy.co/api/v1/validate-service \
   -H 'Content-Type: application/json' \
-  -H 'authentication_token: meowmeowmeow \
+  -H 'authentication-token: meowmeowmeow \
   -d '{
 	"origin":{
 		"city_name":"medellin",
@@ -328,7 +328,7 @@ var options = { method: 'GET',
   url: 'https://turboboy.co/api/v1/validate-service',
   headers: 
    { 'Content-Type': 'application/json',
-     authentication_token: 'meowmeowmeow' },
+     'authentication-token': 'meowmeowmeow' },
   body: 
    { origin: 
       { city_name: 'medellin',
@@ -372,7 +372,7 @@ This endpoint point calculates if a service is well formed
 
 `GET /api/v1/validate-service HTTP/1.1
 Host: turboboy.co:3000
-authentication_token: meowmeowmeow
+authentication-token: meowmeowmeow
 Content-Type: application/json
 {
 	"origin":{
@@ -407,7 +407,7 @@ destinations[n].address   | String  | false      | doesn't apply | Address provi
 ```shell
 curl -X POST \
   'https://turboboy.co/api/v1/create-service?uuid=b4428ac5111fbde9e8b5' \
-  -H 'authentication_token: meowmeowmeow \
+  -H 'authentication-token: meowmeowmeow \
 ```
 
 ```javascript
@@ -418,7 +418,7 @@ var options = { method: 'POST',
   qs: { uuid: 'b4428ac5111fbde9e8b5' },
   headers: 
    { 
-     authentication_token: 'meowmeowmeow' } };
+     'authentication-token': 'meowmeowmeow' } };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -458,7 +458,7 @@ This endpoint point calculates if a service is well formed
 
 `POST /api/v1/create-service?uuid=b4428ac5111fbde9e8b5 HTTP/1.1
 Host: turboboy.co
-authentication_token: meowmeowmeow`
+authentication-token: meowmeowmeow`
 
 ### Query Parameters
 
@@ -473,7 +473,7 @@ uuid   | String  | true      | doesn't apply | Unique identification provided by
 ```shell
 curl -X GET \
   'https://turboboy.co/api/v1/service-status?uuid=1' \
-  -H 'authentication_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI'
+  -H 'authentication-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI'
 ```
 
 ```javascript
@@ -484,7 +484,7 @@ var options = { method: 'GET',
   qs: { uuid: '1' },
   headers: 
    {
-     authentication_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI' } };
+     'authentication-token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI' } };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -577,7 +577,7 @@ This endpoint provides the status of a service
 
 `GET /api/v1/service-status?uuid=1 HTTP/1.1
 Host: turboboy.co
-authentication_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI`
+authentication-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI`
 
 ### Query Parameters
 

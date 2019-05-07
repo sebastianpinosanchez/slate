@@ -47,9 +47,9 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "authentication_token",
-						"type": "text",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1ODQ2MzYzNDQsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.ecldObMfCC8AJMsD5Huhxal0AZQK1ssMKbW5nLmELXY"
+						"key": "Authentication-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -87,8 +87,8 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "authentication_token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1ODQ2MzYzNDQsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.ecldObMfCC8AJMsD5Huhxal0AZQK1ssMKbW5nLmELXY",
+						"key": "Authentication-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
 						"type": "text"
 					}
 				],
@@ -131,8 +131,8 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "authentication_token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1ODQ2MzYzNDQsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.ecldObMfCC8AJMsD5Huhxal0AZQK1ssMKbW5nLmELXY",
+						"key": "Authentication-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
 						"type": "text"
 					}
 				],
@@ -174,13 +174,12 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "authentication_token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1ODQ2MzYzNDQsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.ecldObMfCC8AJMsD5Huhxal0AZQK1ssMKbW5nLmELXY",
+						"key": "Authentication-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
 						"type": "text"
 					},
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
 						"value": "application/json",
 						"type": "text"
 					}
@@ -190,7 +189,7 @@
 					"raw": "{\n\t\"origin\":{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra 43A ##6 Sur-15\",\n\t\t\"contact\":\"Sebastian\",\n\t\t\"comments\":\"Nothing\"\n\t},\n\t\"destinations\":[{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra. 48 ##10 45\"\n\t}]\n}"
 				},
 				"url": {
-					"raw": "turboboy.co/api/v1/validate-service",
+					"raw": "turboboy.co/api/v1/validate-service?Content-Type=application/json",
 					"host": [
 						"turboboy",
 						"co"
@@ -199,6 +198,12 @@
 						"api",
 						"v1",
 						"validate-service"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
 					]
 				}
 			},
@@ -210,8 +215,8 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "authentication_token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1ODQ2MzYzNDQsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.ecldObMfCC8AJMsD5Huhxal0AZQK1ssMKbW5nLmELXY",
+						"key": "Authentication-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
 						"type": "text"
 					}
 				],
@@ -220,7 +225,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "turboboy.co/api/v1/create-service?uuid=b4428ac5111fbde9e8b5",
+					"raw": "turboboy.co/api/v1/create-service?uuid=9295a34aef79a12fd17c",
 					"host": [
 						"turboboy",
 						"co"
@@ -233,7 +238,7 @@
 					"query": [
 						{
 							"key": "uuid",
-							"value": "b4428ac5111fbde9e8b5"
+							"value": "9295a34aef79a12fd17c"
 						}
 					]
 				}
@@ -246,8 +251,8 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "authentication_token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI",
+						"key": "Authentication-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
 						"type": "text"
 					}
 				],
@@ -256,7 +261,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "turboboy.co/api/v1/service-status?uuid=1",
+					"raw": "turboboy.co/api/v1/service-status?uuid=75",
 					"host": [
 						"turboboy",
 						"co"
@@ -269,7 +274,7 @@
 					"query": [
 						{
 							"key": "uuid",
-							"value": "1"
+							"value": "75"
 						}
 					]
 				}
