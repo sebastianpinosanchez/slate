@@ -16,8 +16,9 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "turboboy.co/api/v1/sign_in?email=prueba@akt.com&password=prueba",
+					"raw": "dev2.turboboy.co/api/v1/sign_in?email=miguel@innventto.com&password=P1152owers",
 					"host": [
+						"dev2",
 						"turboboy",
 						"co"
 					],
@@ -29,11 +30,11 @@
 					"query": [
 						{
 							"key": "email",
-							"value": "prueba@akt.com"
+							"value": "miguel@innventto.com"
 						},
 						{
 							"key": "password",
-							"value": "prueba"
+							"value": "P1152owers"
 						}
 					]
 				},
@@ -48,7 +49,7 @@
 				"header": [
 					{
 						"key": "Authentication-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNzM0MiwiZXhwIjoxNTk0MTM0MDM4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.L53oiBFeviqIHPKSt0wPRypiWvZQkiEGnibiPafSuKg",
 						"type": "text"
 					}
 				],
@@ -57,8 +58,9 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "turboboy.co/api/v1/validate-address?address=Centro Comercial Oviedo&city_name=medellin",
+					"raw": "dev2.turboboy.co/api/v1/validate-address?address=Centro Comercial Oviedo&city_name=medellin",
 					"host": [
+						"dev2",
 						"turboboy",
 						"co"
 					],
@@ -97,8 +99,9 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "turboboy.co/api/v1/calc-fee?total_distance=9&has_procedures=true&return_origin=true",
+					"raw": "dev2.turboboy.co/api/v1/calc-fee?total_distance=9&has_procedures=true&return_origin=true",
 					"host": [
+						"dev2",
 						"turboboy",
 						"co"
 					],
@@ -141,8 +144,9 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "turboboy.co/api/v1/calc-distance?start_point=40.6655101, -73.8918&end_point=40.6905615,-73.9976592",
+					"raw": "dev2.turboboy.co/api/v1/calc-distance?start_point=40.6655101, -73.8918&end_point=40.6905615,-73.9976592",
 					"host": [
+						"dev2",
 						"turboboy",
 						"co"
 					],
@@ -175,7 +179,7 @@
 				"header": [
 					{
 						"key": "Authentication-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTI0MTM2NDksImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.mfv96bB1pTUWCKIehRcQ8C8cv1o1oWGdtm11zL6Hm3I",
 						"type": "text"
 					},
 					{
@@ -186,11 +190,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"origin\":{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra 43A ##6 Sur-15\",\n\t\t\"contact\":\"Sebastian\",\n\t\t\"comments\":\"Nothing\"\n\t},\n\t\"destinations\":[{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra. 48 ##10 45\"\n\t}]\n}"
+					"raw": "{\n\t\"origin\":{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra 43A ##6 Sur-15\",\n\t\t\"contact\":\"Sebastian\",\n\t\t\"comments\":\"Nothing\"\n\t},\n\t\"destinations\":[{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra. 48 ##10 45\"\n\t}],\n\t\"has_procedures\": false,\n\t\"return_origin\": false\n}"
 				},
 				"url": {
-					"raw": "turboboy.co/api/v1/validate-service?Content-Type=application/json",
+					"raw": "dev2.turboboy.co/api/v1/validate-service?Content-Type=application/json",
 					"host": [
+						"dev2",
 						"turboboy",
 						"co"
 					],
@@ -225,8 +230,9 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "turboboy.co/api/v1/create-service?uuid=9295a34aef79a12fd17c",
+					"raw": "dev2.turboboy.co/api/v1/create-service?uuid=9295a34aef79a12fd17c",
 					"host": [
+						"dev2",
 						"turboboy",
 						"co"
 					],
@@ -261,8 +267,9 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "turboboy.co/api/v1/service-status?uuid=75",
+					"raw": "dev2.turboboy.co/api/v1/service-status?uuid=75",
 					"host": [
+						"dev2",
 						"turboboy",
 						"co"
 					],
