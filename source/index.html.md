@@ -304,7 +304,7 @@ end_point | String  | true      | doesn't apply  | String with structure: latitu
 
 ```shell
 curl -X GET \
-  https://turboboy.co/api/v1/validate-service \
+  'https://turboboy.co/api/v1/validate-service?Content-Type=application/json' \
   -H 'Content-Type: application/json' \
   -H 'authentication-token: meowmeowmeow \
   -d '{
@@ -317,7 +317,9 @@ curl -X GET \
 	"destinations":[{
 		"city_name":"medellin",
 		"address":"Cra. 48 ##10 45"
-	}]
+	}],
+	"has_procedures": false,
+	"return_origin": false
 }'
 ```
 
@@ -328,14 +330,16 @@ var options = { method: 'GET',
   url: 'https://turboboy.co/api/v1/validate-service',
   headers: 
    { 'Content-Type': 'application/json',
-     'authentication-token': 'meowmeowmeow' },
+     'Authentication-token':'meowmeowmeow' },
   body: 
    { origin: 
       { city_name: 'medellin',
         address: 'Cra 43A ##6 Sur-15',
         contact: 'Sebastian',
         comments: 'Nothing' },
-     destinations: [ { city_name: 'medellin', address: 'Cra. 48 ##10 45' } ] },
+     destinations: [ { city_name: 'medellin', address: 'Cra. 48 ##10 45' } ],
+     has_procedures: false,
+     return_origin: false },
   json: true };
 
 request(options, function (error, response, body) {
@@ -370,10 +374,11 @@ This endpoint point calculates if a service is well formed
 
 ### HTTP Request
 
-`GET /api/v1/validate-service HTTP/1.1
+`GET /api/v1/validate-service?Content-Type=application/json HTTP/1.1
 Host: turboboy.co:3000
-authentication-token: meowmeowmeow
+Authentication-token: meowmeowmeow
 Content-Type: application/json
+cache-control: no-cache
 {
 	"origin":{
 		"city_name":"medellin",
@@ -384,7 +389,9 @@ Content-Type: application/json
 	"destinations":[{
 		"city_name":"medellin",
 		"address":"Cra. 48 ##10 45"
-	}]
+	}],
+	"has_procedures": false,
+	"return_origin": false
 }`
 
 ### Query Parameters
@@ -399,6 +406,8 @@ origin.contact   | String  | true      | doesn't apply | Name of the person resp
 origin.comments   | String  | false      | doesn't apply | Service comments
 destinations[n].city_name   | String  | false      | doesn't apply | City ​​of final or intermediate point of the service
 destinations[n].address   | String  | false      | doesn't apply | Address provided by the user
+has_procedures   | Boolean  | true       | doesn't apply | True if a service has procedures
+return_origin   | String  | true       | doesn't apply | True if a deliveryboy must return to the point of origin
 
 ## Create service
 
