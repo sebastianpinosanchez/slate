@@ -566,7 +566,7 @@ authentication-token: meowmeowmeow</code></p>
 <p>Validating service</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  https://turboboy.co/api/v1/validate-service <span class="se">\</span>
+  <span class="s1">'https://turboboy.co/api/v1/validate-service?Content-Type=application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'authentication-token: meowmeowmeow \
   -d '</span><span class="o">{</span>
@@ -579,7 +579,9 @@ authentication-token: meowmeowmeow</code></p>
     <span class="s2">"destinations"</span>:[<span class="o">{</span>
         <span class="s2">"city_name"</span>:<span class="s2">"medellin"</span>,
         <span class="s2">"address"</span>:<span class="s2">"Cra. 48 ##10 45"</span>
-    <span class="o">}]</span>
+    <span class="o">}]</span>,
+    <span class="s2">"has_procedures"</span>: <span class="nb">false</span>,
+    <span class="s2">"return_origin"</span>: <span class="nb">false</span>
 <span class="o">}</span><span class="s1">'
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
@@ -587,14 +589,16 @@ authentication-token: meowmeowmeow</code></p>
   <span class="na">url</span><span class="p">:</span> <span class="s1">'https://turboboy.co/api/v1/validate-service'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span> <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-     <span class="s1">'authentication-token'</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span> <span class="p">},</span>
+     <span class="s1">'Authentication-token'</span><span class="p">:</span><span class="s1">'meowmeowmeow'</span> <span class="p">},</span>
   <span class="na">body</span><span class="p">:</span> 
    <span class="p">{</span> <span class="na">origin</span><span class="p">:</span> 
       <span class="p">{</span> <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span><span class="p">,</span>
         <span class="na">address</span><span class="p">:</span> <span class="s1">'Cra 43A ##6 Sur-15'</span><span class="p">,</span>
         <span class="na">contact</span><span class="p">:</span> <span class="s1">'Sebastian'</span><span class="p">,</span>
         <span class="na">comments</span><span class="p">:</span> <span class="s1">'Nothing'</span> <span class="p">},</span>
-     <span class="na">destinations</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span><span class="p">,</span> <span class="na">address</span><span class="p">:</span> <span class="s1">'Cra. 48 ##10 45'</span> <span class="p">}</span> <span class="p">]</span> <span class="p">},</span>
+     <span class="na">destinations</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span><span class="p">,</span> <span class="na">address</span><span class="p">:</span> <span class="s1">'Cra. 48 ##10 45'</span> <span class="p">}</span> <span class="p">],</span>
+     <span class="na">has_procedures</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+     <span class="na">return_origin</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
   <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -623,10 +627,11 @@ authentication-token: meowmeowmeow</code></p>
 </span></code></pre>
 <p>This endpoint point calculates if a service is well formed</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET /api/v1/validate-service HTTP/1.1
+<p><code>GET /api/v1/validate-service?Content-Type=application/json HTTP/1.1
 Host: turboboy.co:3000
-authentication-token: meowmeowmeow
+Authentication-token: meowmeowmeow
 Content-Type: application/json
+cache-control: no-cache
 {
     &quot;origin&quot;:{
         &quot;city_name&quot;:&quot;medellin&quot;,
@@ -637,7 +642,9 @@ Content-Type: application/json
     &quot;destinations&quot;:[{
         &quot;city_name&quot;:&quot;medellin&quot;,
         &quot;address&quot;:&quot;Cra. 48 ##10 45&quot;
-    }]
+    }],
+    &quot;has_procedures&quot;: false,
+    &quot;return_origin&quot;: false
 }</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
@@ -704,6 +711,20 @@ Content-Type: application/json
 <td>false</td>
 <td>doesn&#39;t apply</td>
 <td>Address provided by the user</td>
+</tr>
+<tr>
+<td>has_procedures</td>
+<td>Boolean</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>True if a service has procedures</td>
+</tr>
+<tr>
+<td>return_origin</td>
+<td>String</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>True if a deliveryboy must return to the point of origin</td>
 </tr>
 </tbody></table>
 <h2 id='create-service'>Create service</h2>
