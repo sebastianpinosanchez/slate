@@ -305,18 +305,20 @@ end_point | String  | true      | doesn't apply  | String with structure: latitu
 ```shell
 curl -X GET \
   'https://turboboy.co/api/v1/validate-service?Content-Type=application/json' \
-  -H 'Content-Type: application/json' \
-  -H 'authentication-token: meowmeowmeow \
+  -H 'Authentication-token: meowmeowmeow' \
   -d '{
 	"origin":{
 		"city_name":"medellin",
 		"address":"Cra 43A ##6 Sur-15",
-		"contact":"Sebastian",
+		"reference":"close to Poblado avenue",
+		"contact":"anyone",
 		"comments":"Nothing"
 	},
 	"destinations":[{
 		"city_name":"medellin",
-		"address":"Cra. 48 ##10 45"
+		"address":"Cra. 48 ##10 45",
+		"reference":"close to Regional avenue",
+		"contact":"any other person"
 	}],
 	"has_procedures": false,
 	"return_origin": false
@@ -328,16 +330,22 @@ var request = require("request");
 
 var options = { method: 'GET',
   url: 'https://turboboy.co/api/v1/validate-service',
+  qs: { 'Content-Type': 'application/json' },
   headers: 
    { 'Content-Type': 'application/json',
-     'Authentication-token':'meowmeowmeow' },
+     'Authentication-token': 'meowmeowmeow' },
   body: 
    { origin: 
       { city_name: 'medellin',
         address: 'Cra 43A ##6 Sur-15',
-        contact: 'Sebastian',
+        reference: 'close to Poblado avenue',
+        contact: 'anyone',
         comments: 'Nothing' },
-     destinations: [ { city_name: 'medellin', address: 'Cra. 48 ##10 45' } ],
+     destinations: 
+      [ { city_name: 'medellin',
+          address: 'Cra. 48 ##10 45',
+          reference: 'close to Regional avenue',
+          contact: 'any other person' } ],
      has_procedures: false,
      return_origin: false },
   json: true };
@@ -347,7 +355,6 @@ request(options, function (error, response, body) {
 
   console.log(body);
 });
-
 ```
 
 > The successful JSON has the following structure with: (uuid corresponds to the service cached on the server)
@@ -375,20 +382,22 @@ This endpoint point calculates if a service is well formed
 ### HTTP Request
 
 `GET /api/v1/validate-service?Content-Type=application/json HTTP/1.1
-Host: turboboy.co:3000
+Host: turboboy.co
 Authentication-token: meowmeowmeow
 Content-Type: application/json
-cache-control: no-cache
 {
 	"origin":{
 		"city_name":"medellin",
 		"address":"Cra 43A ##6 Sur-15",
-		"contact":"Sebastian",
+		"reference":"close to Poblado avenue",
+		"contact":"anyone",
 		"comments":"Nothing"
 	},
 	"destinations":[{
 		"city_name":"medellin",
-		"address":"Cra. 48 ##10 45"
+		"address":"Cra. 48 ##10 45",
+		"reference":"close to Regional avenue",
+		"contact":"any other person"
 	}],
 	"has_procedures": false,
 	"return_origin": false
@@ -402,10 +411,13 @@ origin   | JSON  | true      | doesn't apply | Information about the point of or
 destinations | Array  | true      | doesn't apply  | Information of the intermediate and final points for a service
 origin.city_name   | String  | true      | doesn't apply | City ​​of origin of the service
 origin.address   | String  | true      | doesn't apply | Address provided by the user
-origin.contact   | String  | true      | doesn't apply | Name of the person responsible for the service
+origin.contact   | String  | false      | doesn't apply | Name of the person responsible for the service
+origin.reference   | String  | false      | doesn't apply | Address indications example: apartment number, block number
 origin.comments   | String  | false      | doesn't apply | Service comments
 destinations[n].city_name   | String  | false      | doesn't apply | City ​​of final or intermediate point of the service
 destinations[n].address   | String  | false      | doesn't apply | Address provided by the user
+destinations[n].contact   | String  | false      | doesn't apply | Name of the person responsible for the service
+destinations[n].reference   | String  | false      | doesn't apply | Address indications example: apartment number, block number
 has_procedures   | Boolean  | true       | doesn't apply | True if a service has procedures
 return_origin   | String  | true       | doesn't apply | True if a deliveryboy must return to the point of origin
 
