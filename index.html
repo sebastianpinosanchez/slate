@@ -597,16 +597,12 @@ authentication-token: meowmeowmeow</code></p>
    <span class="p">{</span> <span class="na">origin</span><span class="p">:</span> 
       <span class="p">{</span> <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span><span class="p">,</span>
         <span class="na">address</span><span class="p">:</span> <span class="s1">'Cra 43A ##6 Sur-15'</span><span class="p">,</span>
-        <span class="na">reference</span><span class="p">:</span> <span class="s1">'close to Poblado avenue'</span><span class="p">,</span>
-        <span class="na">contact</span><span class="p">:</span> <span class="s1">'anyone'</span><span class="p">,</span>
+        <span class="na">contact</span><span class="p">:</span> <span class="s1">'Sebastian'</span><span class="p">,</span>
         <span class="na">comments</span><span class="p">:</span> <span class="s1">'Nothing'</span> <span class="p">},</span>
-     <span class="na">destinations</span><span class="p">:</span> 
-      <span class="p">[</span> <span class="p">{</span> <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span><span class="p">,</span>
-          <span class="na">address</span><span class="p">:</span> <span class="s1">'Cra. 48 ##10 45'</span><span class="p">,</span>
-          <span class="na">reference</span><span class="p">:</span> <span class="s1">'close to Regional avenue'</span><span class="p">,</span>
-          <span class="na">contact</span><span class="p">:</span> <span class="s1">'any other person'</span> <span class="p">}</span> <span class="p">],</span>
+     <span class="na">destinations</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span><span class="p">,</span> <span class="na">address</span><span class="p">:</span> <span class="s1">'Cra. 48 ##10 45'</span> <span class="p">}</span> <span class="p">],</span>
      <span class="na">has_procedures</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-     <span class="na">return_origin</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+     <span class="na">return_origin</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+     <span class="na">alternative_email</span><span class="p">:</span> <span class="s1">'example@email.com'</span> <span class="p">},</span>
   <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -639,21 +635,21 @@ Host: turboboy.co
 Authentication-token: meowmeowmeow
 Content-Type: application/json
 {
-    &quot;origin&quot;:{
-        &quot;city_name&quot;:&quot;medellin&quot;,
-        &quot;address&quot;:&quot;Cra 43A ##6 Sur-15&quot;,
-        &quot;reference&quot;:&quot;close to Poblado avenue&quot;,
-        &quot;contact&quot;:&quot;anyone&quot;,
-        &quot;comments&quot;:&quot;Nothing&quot;
+    &quot;origin&quot;: {
+        &quot;city_name&quot;: &quot;medellin&quot;,
+        &quot;address&quot;: &quot;Cra 43A ##6 Sur-15&quot;,
+        &quot;contact&quot;: &quot;Sebastian&quot;,
+        &quot;comments&quot;: &quot;Nothing&quot;
     },
-    &quot;destinations&quot;:[{
-        &quot;city_name&quot;:&quot;medellin&quot;,
-        &quot;address&quot;:&quot;Cra. 48 ##10 45&quot;,
-        &quot;reference&quot;:&quot;close to Regional avenue&quot;,
-        &quot;contact&quot;:&quot;any other person&quot;
-    }],
+    &quot;destinations&quot;: [
+        {
+            &quot;city_name&quot;: &quot;medellin&quot;,
+            &quot;address&quot;: &quot;Cra. 48 ##10 45&quot;
+        }
+    ],
     &quot;has_procedures&quot;: false,
-    &quot;return_origin&quot;: false
+    &quot;return_origin&quot;: false,
+    &quot;alternative_email&quot;: &quot;example@email.com&quot;
 }</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
