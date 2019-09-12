@@ -338,18 +338,14 @@ var options = { method: 'GET',
    { origin: 
       { city_name: 'medellin',
         address: 'Cra 43A ##6 Sur-15',
-        reference: 'close to Poblado avenue',
-        contact: 'anyone',
+        contact: 'Sebastian',
         comments: 'Nothing' },
-     destinations: 
-      [ { city_name: 'medellin',
-          address: 'Cra. 48 ##10 45',
-          reference: 'close to Regional avenue',
-          contact: 'any other person' } ],
+     destinations: [ { city_name: 'medellin', address: 'Cra. 48 ##10 45' } ],
      has_procedures: false,
-     return_origin: false },
+     return_origin: false,
+     alternative_email: 'example@email.com' },
   json: true };
-
+  
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
@@ -386,21 +382,21 @@ Host: turboboy.co
 Authentication-token: meowmeowmeow
 Content-Type: application/json
 {
-	"origin":{
-		"city_name":"medellin",
-		"address":"Cra 43A ##6 Sur-15",
-		"reference":"close to Poblado avenue",
-		"contact":"anyone",
-		"comments":"Nothing"
-	},
-	"destinations":[{
-		"city_name":"medellin",
-		"address":"Cra. 48 ##10 45",
-		"reference":"close to Regional avenue",
-		"contact":"any other person"
-	}],
-	"has_procedures": false,
-	"return_origin": false
+    "origin": {
+        "city_name": "medellin",
+        "address": "Cra 43A ##6 Sur-15",
+        "contact": "Sebastian",
+        "comments": "Nothing"
+    },
+    "destinations": [
+        {
+            "city_name": "medellin",
+            "address": "Cra. 48 ##10 45"
+        }
+    ],
+    "has_procedures": false,
+    "return_origin": false,
+    "alternative_email": "example@email.com"
 }`
 
 ### Query Parameters
