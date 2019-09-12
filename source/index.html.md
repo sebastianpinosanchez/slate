@@ -321,7 +321,8 @@ curl -X GET \
 		"contact":"any other person"
 	}],
 	"has_procedures": false,
-	"return_origin": false
+	"return_origin": false,
+  "alternative_email": "example@email.com"
 }'
 ```
 
@@ -416,6 +417,7 @@ destinations[n].contact   | String  | false      | doesn't apply | Name of the p
 destinations[n].reference   | String  | false      | doesn't apply | Address indications example: apartment number, block number
 has_procedures   | Boolean  | true       | doesn't apply | True if a service has procedures
 return_origin   | String  | true       | doesn't apply | True if a deliveryboy must return to the point of origin
+alternative_email   | String  | false       | doesn't apply | another email for sending service invoice
 
 ## Create service
 
