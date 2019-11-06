@@ -258,6 +258,7 @@
             <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
             <li><h2><a href='https://raw.githubusercontent.com/sebastianpinosanchez/slate/master/source/Turboboy%20API.postman_collection.json'>Postman Collection</a></h2></li>
+            <li><h2><a href='https://raw.githubusercontent.com/sebastianpinosanchez/slate/master/source/TurboBOY%Development%server.postman_environment.json'>Development Postman Env</a></h2></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -271,19 +272,19 @@
 <p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>.</p>
 
 <ol>
-<li><strong>Production Host:</strong> <em>turboboy.co</em></li>
-<li><strong>Development host:</strong> <em>dev2.turboboy.co</em></li>
+<li><strong>Production Host:</strong> <em>https://www.turboboy.co</em></li>
+<li><strong>Development host:</strong> <em>https://dev2.turboboy.co</em></li>
 </ol>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To get the authorization token, execute the following code:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'https://turboboy.co/api/v1/sign_in?email=kitten@email.com&amp;password=kittenpassword'</span>
+  <span class="s1">'https://www.turboboy.co/api/v1/sign_in?email=kitten@email.com&amp;password=kittenpassword'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://turboboy.co/api/v1/sign_in'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.turboboy.co/api/v1/sign_in'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">email</span><span class="p">:</span> <span class="s1">'prueba@akt.com'</span><span class="p">,</span> <span class="na">password</span><span class="p">:</span> <span class="s1">'prueba'</span> <span class="p">},</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -312,7 +313,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /api/v1/sign_in?email=kitten@email.com&amp;amp; password=kittenpassword HTTP/1.1
-Host: turboboy.co</code></p>
+Host: www.turboboy.co</code></p>
 
 <p>Before making any request to the API it is necessary to obtain the authorization 
 token with the registered credentials in the turboboy system for the company.</p>
@@ -339,12 +340,12 @@ Remember add <code>authentication-token</code> to the header of all requests
 <p>Validating an address</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'https://turboboy.co/api/v1/validate-address?address=Centro%20Comercial%20Oviedo&amp;city_name=medellin'</span> <span class="se">\</span>
+  <span class="s1">'https://www.turboboy.co/api/v1/validate-address?address=Centro%20Comercial%20Oviedo&amp;city_name=medellin'</span> <span class="se">\</span>
   -H <span class="s1">'meowmeowmeow'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://turboboy.co/api/v1/validate-address'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.turboboy.co/api/v1/validate-address'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> 
    <span class="p">{</span> <span class="na">address</span><span class="p">:</span> <span class="s1">'Centro%20Comercial%20Oviedo'</span><span class="p">,</span>
      <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span> <span class="p">},</span>
@@ -383,7 +384,7 @@ Remember add <code>authentication-token</code> to the header of all requests
 <p>This endpoint allows validating if a direction is well formed and returns the coordinates of the point</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /api/v1/validate-address?address=Centro Comercial Oviedo&amp;amp; city_name=medellin HTTP/1.1
-Host: turboboy.co
+Host: www.turboboy.co
 authentication-token: meowmeowmeow</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -415,12 +416,12 @@ authentication-token: meowmeowmeow</code></p>
 <p>Calculating services fee</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'https://turboboy.co/api/v1/calc-fee?total_distance=9&amp;has_procedures=true&amp;return_origin=true'</span> <span class="se">\</span>
+  <span class="s1">'https://www.turboboy.co/api/v1/calc-fee?total_distance=9&amp;has_procedures=true&amp;return_origin=true'</span> <span class="se">\</span>
   -H <span class="s1">'authentication-token: meowmeowmeow'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://turboboy.co/api/v1/calc-fee'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.turboboy.co/api/v1/calc-fee'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> 
    <span class="p">{</span> <span class="na">total_distance</span><span class="p">:</span> <span class="s1">'9'</span><span class="p">,</span>
      <span class="na">has_procedures</span><span class="p">:</span> <span class="s1">'true'</span><span class="p">,</span>
@@ -457,7 +458,7 @@ authentication-token: meowmeowmeow</code></p>
 <p>This endpoint calculates the fee given the characteristics of a Service</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /api/v1/calc-fee?total_distance=9&amp;amp; has_procedures=true&amp;amp; return_origin=true HTTP/1.1
-Host: turboboy.co
+Host: www.turboboy.co
 authentication-token: meowmeowmeow</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -496,12 +497,12 @@ authentication-token: meowmeowmeow</code></p>
 <p>Calculating services distance</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'https://turboboy.co/api/v1/calc-distance?start_point=40.6655101,%20-73.8918&amp;end_point=40.6905615,-73.9976592'</span> <span class="se">\</span>
+  <span class="s1">'https://www.turboboy.co/api/v1/calc-distance?start_point=40.6655101,%20-73.8918&amp;end_point=40.6905615,-73.9976592'</span> <span class="se">\</span>
   -H <span class="s1">'authentication-token: meowmeowmeow'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://turboboy.co/api/v1/calc-distance'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.turboboy.co/api/v1/calc-distance'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> 
    <span class="p">{</span> <span class="na">start_point</span><span class="p">:</span> <span class="s1">'40.6655101,%20-73.8918'</span><span class="p">,</span>
      <span class="na">end_point</span><span class="p">:</span> <span class="s1">'40.6905615,-73.9976592'</span> <span class="p">},</span>
@@ -534,7 +535,7 @@ authentication-token: meowmeowmeow</code></p>
 <p>This endpoint calculates the distance that must be covered for a service with points A and B</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /api/v1/calc-distance?start_point=40.6655101, -73.8918&amp;amp; end_point=40.6905615,-73.9976592 HTTP/1.1
-Host: turboboy.co
+Host: www.turboboy.co
 authentication-token: meowmeowmeow</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
@@ -566,7 +567,7 @@ authentication-token: meowmeowmeow</code></p>
 <p>Validating service</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'https://turboboy.co/api/v1/validate-service?Content-Type=application/json'</span> <span class="se">\</span>
+  <span class="s1">'https://www.turboboy.co/api/v1/validate-service?Content-Type=application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authentication-token: meowmeowmeow'</span> <span class="se">\</span>
   -d <span class="s1">'{
     "origin":{
@@ -589,7 +590,7 @@ authentication-token: meowmeowmeow</code></p>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://turboboy.co/api/v1/validate-service'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.turboboy.co/api/v1/validate-service'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span> <span class="p">},</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span> <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
@@ -632,7 +633,7 @@ authentication-token: meowmeowmeow</code></p>
 <p>This endpoint point calculates if a service is well formed</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET /api/v1/validate-service?Content-Type=application/json HTTP/1.1
-Host: turboboy.co
+Host: www.turboboy.co
 Authentication-token: meowmeowmeow
 Content-Type: application/json
 {
@@ -766,12 +767,12 @@ Content-Type: application/json
 <p>Creating service</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-  <span class="s1">'https://turboboy.co/api/v1/create-service?uuid=b4428ac5111fbde9e8b5'</span> <span class="se">\</span>
+  <span class="s1">'https://www.turboboy.co/api/v1/create-service?uuid=b4428ac5111fbde9e8b5'</span> <span class="se">\</span>
   -H <span class="s1">'authentication-token: meowmeowmeow \
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://turboboy.co/api/v1/create-service'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.turboboy.co/api/v1/create-service'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">uuid</span><span class="p">:</span> <span class="s1">'b4428ac5111fbde9e8b5'</span> <span class="p">},</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span> 
@@ -808,7 +809,7 @@ Content-Type: application/json
 <p>This endpoint point calculates if a service is well formed</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST /api/v1/create-service?uuid=b4428ac5111fbde9e8b5 HTTP/1.1
-Host: turboboy.co
+Host: www.turboboy.co
 authentication-token: meowmeowmeow</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
@@ -833,12 +834,12 @@ authentication-token: meowmeowmeow</code></p>
 <p>Getting service status</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'https://turboboy.co/api/v1/service-status?uuid=1'</span> <span class="se">\</span>
+  <span class="s1">'https://www.turboboy.co/api/v1/service-status?uuid=1'</span> <span class="se">\</span>
   -H <span class="s1">'authentication-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://turboboy.co/api/v1/service-status'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.turboboy.co/api/v1/service-status'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">uuid</span><span class="p">:</span> <span class="s1">'1'</span> <span class="p">},</span>
   <span class="na">headers</span><span class="p">:</span> 
    <span class="p">{</span>
@@ -928,7 +929,7 @@ authentication-token: meowmeowmeow</code></p>
 <p>This endpoint provides the status of a service</p>
 <h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET /api/v1/service-status?uuid=1 HTTP/1.1
-Host: turboboy.co
+Host: www.turboboy.co
 authentication-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI</code></p>
 <h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>

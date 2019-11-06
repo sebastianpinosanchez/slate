@@ -8,33 +8,40 @@
 	"item": [
 		{
 			"name": "sign_in",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e31099f5-67e5-42a4-b6e7-05c69fe737d5",
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"",
+							"pm.environment.set(\"token\", response.authentication_token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "dev2.turboboy.co/api/v1/sign_in?email=miguel@innventto.com&password=P1152owers",
+					"raw": "{{host}}/sign_in?email=example@example.com&password=PASSWORD",
 					"host": [
-						"dev2",
-						"turboboy",
-						"co"
+						"{{host}}"
 					],
 					"path": [
-						"api",
-						"v1",
 						"sign_in"
 					],
 					"query": [
 						{
 							"key": "email",
-							"value": "miguel@innventto.com"
+							"value": "example@example.com"
 						},
 						{
 							"key": "password",
-							"value": "P1152owers"
+							"value": "PASSWORD"
 						}
 					]
 				},
@@ -49,24 +56,16 @@
 				"header": [
 					{
 						"key": "Authentication-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNzM0MiwiZXhwIjoxNTk0MTM0MDM4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.L53oiBFeviqIHPKSt0wPRypiWvZQkiEGnibiPafSuKg",
+						"value": "{{token}}",
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "dev2.turboboy.co/api/v1/validate-address?address=Centro Comercial Oviedo&city_name=medellin",
+					"raw": "{{host}}/validate-address?address=Centro Comercial Oviedo&city_name=medellin",
 					"host": [
-						"dev2",
-						"turboboy",
-						"co"
+						"{{host}}"
 					],
 					"path": [
-						"api",
-						"v1",
 						"validate-address"
 					],
 					"query": [
@@ -90,24 +89,16 @@
 				"header": [
 					{
 						"key": "Authentication-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
+						"value": "{{token}}",
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "dev2.turboboy.co/api/v1/calc-fee?total_distance=9&has_procedures=true&return_origin=true",
+					"raw": "{{host}}/calc-fee?total_distance=9&has_procedures=true&return_origin=true",
 					"host": [
-						"dev2",
-						"turboboy",
-						"co"
+						"{{host}}"
 					],
 					"path": [
-						"api",
-						"v1",
 						"calc-fee"
 					],
 					"query": [
@@ -135,24 +126,16 @@
 				"header": [
 					{
 						"key": "Authentication-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
+						"value": "{{token}}",
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "dev2.turboboy.co/api/v1/calc-distance?start_point=40.6655101, -73.8918&end_point=40.6905615,-73.9976592",
+					"raw": "{{host}}/calc-distance?start_point=40.6655101, -73.8918&end_point=40.6905615,-73.9976592",
 					"host": [
-						"dev2",
-						"turboboy",
-						"co"
+						"{{host}}"
 					],
 					"path": [
-						"api",
-						"v1",
 						"calc-distance"
 					],
 					"query": [
@@ -179,21 +162,28 @@
 				"header": [
 					{
 						"key": "Authentication-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTI0MTM2NDksImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.mfv96bB1pTUWCKIehRcQ8C8cv1o1oWGdtm11zL6Hm3I",
+						"value": "{{token}}",
 						"type": "text"
 					},
 					{
 						"key": "Content-Type",
+						"name": "Content-Type",
 						"value": "application/json",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"origin\":{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra 43A ##6 Sur-15\",\n\t\t\"contact\":\"Sebastian\",\n\t\t\"comments\":\"Nothing\"\n\t},\n\t\"destinations\":[{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra. 48 ##10 45\"\n\t}],\n\t\"has_procedures\": false,\n\t\"return_origin\": false\n}"
+					"raw": "{\n\t\"origin\":{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra 43A ##6 Sur-15\",\n\t\t\"contact\":\"Sebastian\",\n\t\t\"comments\":\"Nothing\"\n\t},\n\t\"destinations\":[{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra. 48 ##10 45\"\n\t}],\n\t\"has_procedures\": false,\n\t\"return_origin\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "dev2.turboboy.co/api/v1/validate-service?Content-Type=application/json",
+					"raw": "https://dev2.turboboy.co/api/v1/validate-service",
+					"protocol": "https",
 					"host": [
 						"dev2",
 						"turboboy",
@@ -203,12 +193,6 @@
 						"api",
 						"v1",
 						"validate-service"
-					],
-					"query": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
 					]
 				}
 			},
@@ -221,31 +205,32 @@
 				"header": [
 					{
 						"key": "Authentication-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
+						"value": "{{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\n\t\"uuid\":\"8a690cd2159165aae810\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "dev2.turboboy.co/api/v1/create-service?uuid=9295a34aef79a12fd17c",
+					"raw": "{{host}}/create-service",
 					"host": [
-						"dev2",
-						"turboboy",
-						"co"
+						"{{host}}"
 					],
 					"path": [
-						"api",
-						"v1",
 						"create-service"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "9295a34aef79a12fd17c"
-						}
 					]
 				}
 			},
@@ -258,31 +243,60 @@
 				"header": [
 					{
 						"key": "Authentication-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNywiZXhwIjoxNTg4ODAwMTI4LCJpc3MiOiJpc3N1ZXJfbmFtZSIsImF1ZCI6ImNsaWVudCJ9.DAcQGn3yNkaq3yJpQIWOCLyh83BphP7qEMWtzVSO2T4",
+						"value": "{{token}}",
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "dev2.turboboy.co/api/v1/service-status?uuid=75",
+					"raw": "{{host}}/service-status?uuid=191218",
 					"host": [
-						"dev2",
-						"turboboy",
-						"co"
+						"{{host}}"
 					],
 					"path": [
-						"api",
-						"v1",
 						"service-status"
 					],
 					"query": [
 						{
 							"key": "uuid",
-							"value": "75"
+							"value": "191218"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate-services-new",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authentication-token",
+						"value": "{{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"origin\":{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra 43A ##6 Sur-15\",\n\t\t\"contact\":\"Sebastian\",\n\t\t\"comments\":\"Nothing\"\n\t},\n\t\"destinations\":[{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra. 48 ##10 45\"\n\t}],\n\t\"has_procedures\": false,\n\t\"return_origin\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/validate-service-new",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"validate-service-new"
 					]
 				}
 			},
