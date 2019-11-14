@@ -237,6 +237,9 @@
                     <a href="#validate-an-address" class="toc-h2 toc-link" data-title="Validate an address">Validate an address</a>
                   </li>
                   <li>
+                    <a href="#validate-a-place-id" class="toc-h2 toc-link" data-title="Validate a place id">Validate a place id</a>
+                  </li>
+                  <li>
                     <a href="#calculate-service-fee" class="toc-h2 toc-link" data-title="Calculate service fee">Calculate service fee</a>
                   </li>
                   <li>
@@ -411,6 +414,90 @@ authentication-token: meowmeowmeow</code></p>
 <td>Name of the corresponding city of the address</td>
 </tr>
 </tbody></table>
+<h2 id='validate-a-place-id'>Validate a place id</h2>
+<p>The cities for the city_name field are:</p>
+
+<p>[&quot;Medellín&quot;,&quot;Bello&quot;,&quot;Caldas&quot;,&quot;Envigado&quot;,&quot;Guarne&quot;,&quot;Itagüí&quot;,&quot;La Estrella&quot;,&quot;Marinilla&quot;,&quot;Rionegro&quot;,&quot;Sabaneta&quot;,&quot;San Antonio de Prado&quot;,&quot;Copacabana&quot;,&quot;Girardota&quot;,&quot;Barbosa&quot;,&quot;El alto de las palmas&quot;,&quot;El Retiro&quot;,&quot;La Ceja&quot;,&quot;La Union&quot;]</p>
+
+<aside class="success">
+Remember add <code>authentication-token</code> to the header of all requests
+</aside>
+
+<blockquote>
+<p>Validating a place id</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  <span class="s1">'https://www.turboboy.co/api/v1/validate-place?place_id=ChIJJwGgHIiCRo4RCULqOapiZ_k&amp;city_name=medellin'</span> <span class="se">\</span>
+  -H <span class="s1">'meowmeowmeow'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.turboboy.co/api/v1/validate-place'</span><span class="p">,</span>
+  <span class="na">qs</span><span class="p">:</span> 
+   <span class="p">{</span> <span class="na">place_id</span><span class="p">:</span> <span class="s1">'ChIJJwGgHIiCRo4RCULqOapiZ_k'</span><span class="p">,</span>
+     <span class="na">city_name</span><span class="p">:</span> <span class="s1">'medellin'</span> <span class="p">},</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> 
+     <span class="s1">'authentication-token'</span><span class="p">:</span> <span class="s1">'meowmeowmeow'</span>
+    <span class="p">}</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The successful JSON has the following structure:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>The failed JSON result has the following structure:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"No fue posible obtener información del place_id"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows validating if a place id is well formed according with the Google API</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /api/v1/validate-place?place_id=ChIJJwGgHIiCRo4RCULqOapiZ_k&amp;amp; city_name=medellin HTTP/1.1
+Host: www.turboboy.co
+authentication-token: meowmeowmeow</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Mandatory</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>place_id</td>
+<td>String</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>Address identification according to the Google API standard</td>
+</tr>
+<tr>
+<td>city_name</td>
+<td>String</td>
+<td>true</td>
+<td>doesn&#39;t apply</td>
+<td>Name of the corresponding city of the address</td>
+</tr>
+</tbody></table>
 <h2 id='calculate-service-fee'>Calculate service fee</h2>
 <blockquote>
 <p>Calculating services fee</p>
@@ -456,11 +543,11 @@ authentication-token: meowmeowmeow</code></p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint calculates the fee given the characteristics of a Service</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /api/v1/calc-fee?total_distance=9&amp;amp; has_procedures=true&amp;amp; return_origin=true HTTP/1.1
 Host: www.turboboy.co
 authentication-token: meowmeowmeow</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -533,11 +620,11 @@ authentication-token: meowmeowmeow</code></p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint calculates the distance that must be covered for a service with points A and B</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET /api/v1/calc-distance?start_point=40.6655101, -73.8918&amp;amp; end_point=40.6905615,-73.9976592 HTTP/1.1
 Host: www.turboboy.co
 authentication-token: meowmeowmeow</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -631,7 +718,7 @@ authentication-token: meowmeowmeow</code></p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint point calculates if a service is well formed</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET /api/v1/validate-service?Content-Type=application/json HTTP/1.1
 Host: www.turboboy.co
 Authentication-token: meowmeowmeow
@@ -653,7 +740,7 @@ Content-Type: application/json
     &quot;return_origin&quot;: false,
     &quot;alternative_email&quot;: &quot;example@email.com&quot;
 }</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -749,7 +836,7 @@ Content-Type: application/json
 </tr>
 <tr>
 <td>return_origin</td>
-<td>String</td>
+<td>Boolean</td>
 <td>true</td>
 <td>doesn&#39;t apply</td>
 <td>True if a deliveryboy must return to the point of origin</td>
@@ -760,6 +847,13 @@ Content-Type: application/json
 <td>false</td>
 <td>doesn&#39;t apply</td>
 <td>another email for sending service invoice</td>
+</tr>
+<tr>
+<td>place_id_strategy</td>
+<td>Boolean</td>
+<td>false</td>
+<td>false</td>
+<td>If you want to represent the addresses as place_id</td>
 </tr>
 </tbody></table>
 <h2 id='create-service'>Create service</h2>
@@ -807,11 +901,11 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint point calculates if a service is well formed</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>POST /api/v1/create-service?uuid=b4428ac5111fbde9e8b5 HTTP/1.1
 Host: www.turboboy.co
 authentication-token: meowmeowmeow</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -927,11 +1021,11 @@ authentication-token: meowmeowmeow</code></p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint provides the status of a service</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET /api/v1/service-status?uuid=1 HTTP/1.1
 Host: www.turboboy.co
 authentication-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODgxOTMwNTIsImlzcyI6Imlzc3Vlcl9uYW1lIiwiYXVkIjoiY2xpZW50In0.MyncNrNrVQahs7cA00WEWA1Y3D3DuartT3WmyLgWHwI</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
