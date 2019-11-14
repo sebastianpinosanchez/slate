@@ -168,6 +168,82 @@ Parameter | Type    | Mandatory | Default       | Description
 address   | String  | true      | doesn't apply | Address provided by the user
 city_name | String  | true      | doesn't apply | Name of the corresponding city of the address
 
+## Validate a place id
+
+The cities for the city_name field are:
+
+["Medellín","Bello","Caldas","Envigado","Guarne","Itagüí","La Estrella","Marinilla","Rionegro","Sabaneta","San Antonio de Prado","Copacabana","Girardota","Barbosa","El alto de las palmas","El Retiro","La Ceja","La Union"]
+
+<aside class="success">
+Remember add <code>authentication-token</code> to the header of all requests
+</aside>
+
+> Validating a place id
+
+```shell
+curl -X GET \
+  'https://www.turboboy.co/api/v1/validate-place?place_id=ChIJJwGgHIiCRo4RCULqOapiZ_k&city_name=medellin' \
+  -H 'meowmeowmeow'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'https://www.turboboy.co/api/v1/validate-place',
+  qs: 
+   { place_id: 'ChIJJwGgHIiCRo4RCULqOapiZ_k',
+     city_name: 'medellin' },
+  headers: 
+   { 
+     'authentication-token': 'meowmeowmeow'
+    } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> The successful JSON has the following structure:
+
+```json
+{
+  "response": {
+      "success": true,
+      "info": {
+         ...
+    }
+  }
+}
+```
+
+> The failed JSON result has the following structure:
+
+```json
+{
+  "error_messages": [
+    "No fue posible obtener información del place_id"
+  ]
+}
+```
+
+This endpoint allows validating if a place id is well formed according with the Google API
+
+### HTTP Request
+
+`GET /api/v1/validate-place?place_id=ChIJJwGgHIiCRo4RCULqOapiZ_k&amp; city_name=medellin HTTP/1.1
+Host: www.turboboy.co
+authentication-token: meowmeowmeow`
+
+### Query Parameters
+
+Parameter | Type    | Mandatory | Default       | Description
+--------- | ------- | --------- | -----------   | -----------
+place_id   | String  | true      | doesn't apply | Address identification according to the Google API standard 
+city_name | String  | true      | doesn't apply | Name of the corresponding city of the address
+
 ## Calculate service fee
 
 
@@ -417,8 +493,9 @@ destinations[n].address   | String  | false      | doesn't apply | Address provi
 destinations[n].contact   | String  | false      | doesn't apply | Name of the person responsible for the service
 destinations[n].reference   | String  | false      | doesn't apply | Address indications example: apartment number, block number
 has_procedures   | Boolean  | true       | doesn't apply | True if a service has procedures
-return_origin   | String  | true       | doesn't apply | True if a deliveryboy must return to the point of origin
+return_origin   | Boolean  | true       | doesn't apply | True if a deliveryboy must return to the point of origin
 alternative_email   | String  | false       | doesn't apply | another email for sending service invoice
+place_id_strategy | Boolean | false | false | If you want to represent the addresses as place_id
 
 ## Create service
 

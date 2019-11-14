@@ -83,6 +83,39 @@
 			"response": []
 		},
 		{
+			"name": "validate-place",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authentication-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/validate-place?place_id=ChIJJwGgHIiCRo4RCULqOapiZ_k&city_name=medellin",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"validate-place"
+					],
+					"query": [
+						{
+							"key": "place_id",
+							"value": "ChIJJwGgHIiCRo4RCULqOapiZ_k"
+						},
+						{
+							"key": "city_name",
+							"value": "medellin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "calc-fee",
 			"request": {
 				"method": "GET",
@@ -174,7 +207,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"origin\":{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra 43A ##6 Sur-15\",\n\t\t\"contact\":\"Sebastian\",\n\t\t\"comments\":\"Nothing\"\n\t},\n\t\"destinations\":[{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"Cra. 48 ##10 45\"\n\t}],\n\t\"has_procedures\": false,\n\t\"return_origin\": false\n}",
+					"raw": "{\n\t\"origin\":{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"ChIJJwGgHIiCRo4RCULqOapiZ_k\",\n\t\t\"contact\":\"Sebastian\",\n\t\t\"comments\":\"Nothing\"\n\t},\n\t\"destinations\":[{\n\t\t\"city_name\":\"medellin\",\n\t\t\"address\":\"ChIJQ5HIfJqCRo4RNTgu5EV4QKE\"\n\t}],\n\t\"has_procedures\": false,\n\t\"return_origin\": false,\n\t\"place_id_strategy\": true\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -182,16 +215,11 @@
 					}
 				},
 				"url": {
-					"raw": "https://dev2.turboboy.co/api/v1/validate-service",
-					"protocol": "https",
+					"raw": "{{host}}/validate-service",
 					"host": [
-						"dev2",
-						"turboboy",
-						"co"
+						"{{host}}"
 					],
 					"path": [
-						"api",
-						"v1",
 						"validate-service"
 					]
 				}
